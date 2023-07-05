@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,7 +27,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Waves[] waves;
     public List<EnemyBehaviour> enemies;
     [SerializeField] private GameObject upgradePanel;
-    [SerializeField] private Text vitality, damage, waitToFire, movementSpeed;
+    [SerializeField] public Text vitality, damage, waitToFire, movementSpeed, currentPoint;
 
     private void Awake()
     {
@@ -71,21 +70,26 @@ public class LevelManager : MonoBehaviour
             enemies.Add(newBrute.GetComponent<EnemyBehaviour>());
         }
 
-        if (waves[waveCounter].amountOfGreenSlime == 0 && waves[waveCounter].amountOfFireSlime == 0 &&
-            waves[waveCounter].amountOfBrute == 0)
-        {
-            waves[waveCounter].finished = true;
-        }
+        SetUpgradePanel(waveCounter);
+    }
 
+    private void SetUpgradePanel(int waveCounter)
+    {
         if (enemies.Count == 0)
         {
             waves[waveCounter].finished = true;
             upgradePanel.SetActive(true);
-            vitality.text = "Current Vitality: " + PlayerBehaviour.instance.maxHealth;
-            damage.text = "Current Damage: " + WeaponBehaviour.instance.damage;
-            waitToFire.text = "Attack Speed: " + WeaponBehaviour.instance.cooldownToShoot;
-            movementSpeed.text = "Current Speed: " + PlayerBehaviour.instance.moveSpeed;
+            vitality.text = "Current Vitality: " + PlayerBehaviour.instance.maxHealth + "\nNext Level: " +
+                            (PlayerBehaviour.instance.maxHealth + 1);
+            damage.text = "Current Damage: " + WeaponBehaviour.instance.damage + "\nNext Level: " +
+                          (WeaponBehaviour.instance.damage + 1);
+            waitToFire.text = "Current Attack Speed: " + WeaponBehaviour.instance.attackSpeed + "\nNext Level: " +
+                              (WeaponBehaviour.instance.attackSpeed + 0.001f);
+            movementSpeed.text = "Current Speed: " + PlayerBehaviour.instance.moveSpeed + "\ntNext Level: " +
+                                 (PlayerBehaviour.instance.moveSpeed + 1);
+            currentPoint.text = PlayerBehaviour.instance.level + " points left!";
             Time.timeScale = 0f;
+            wave++;
         }
     }
 

@@ -4,6 +4,7 @@ public class StatBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator _animatorV, _animatorD, _animatorA, _animatorM;
     private static readonly int Pressed = Animator.StringToHash("pressed");
+    [SerializeField] private GameObject panel;
 
     public void IncreaseVitality()
     {
@@ -14,6 +15,7 @@ public class StatBehaviour : MonoBehaviour
             PlayerBehaviour.instance.currentHealth = PlayerBehaviour.instance.maxHealth;
             _animatorV.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
+            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
         }
     }
 
@@ -24,6 +26,7 @@ public class StatBehaviour : MonoBehaviour
             PlayerBehaviour.instance.moveSpeed += 1;
             _animatorM.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
+            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
         }
     }
 
@@ -34,6 +37,7 @@ public class StatBehaviour : MonoBehaviour
             WeaponBehaviour.instance.damage += 1;
             _animatorD.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
+            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
         }
     }
 
@@ -44,6 +48,13 @@ public class StatBehaviour : MonoBehaviour
             WeaponBehaviour.instance.attackSpeed += 0.001f;
             _animatorA.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
+            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
         }
+    }
+
+    public void CloseUpgradePanel()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
