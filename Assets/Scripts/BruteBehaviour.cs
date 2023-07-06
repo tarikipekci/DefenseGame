@@ -11,12 +11,12 @@ public class BruteBehaviour : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        player = FindObjectOfType<PlayerBehaviour>().gameObject.transform;
+        player = PlayerBehaviour.instance.transform;
     }
 
     private void Update()
     {
-        if (Vector2.Distance(player.position, transform.position) <= 4f)
+        if (Vector2.Distance(player.position, transform.position) <= 5f)
         {
             if (player.position.x < transform.position.x)
             {

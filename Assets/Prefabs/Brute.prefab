@@ -118,7 +118,7 @@ MonoBehaviour:
   isSlime: 0
   movingCounter: 0
   movingCounterReset: 0
-  xp: {fileID: 0}
+  xp: {fileID: 8082384930095241744, guid: d7151c5541f031c46895aa365d2b8e6c, type: 3}
 --- !u!61 &3432462867225728490
 BoxCollider2D:
   m_ObjectHideFlags: 0
