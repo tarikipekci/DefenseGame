@@ -18,12 +18,11 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private bool isFireSlime, isBrute, isSlime;
     private bool _canShoot = true;
     [SerializeField] private float movingCounter, movingCounterReset;
-    public static EnemyBehaviour instance;
     [SerializeField] private GameObject xp;
+    [SerializeField] private GameObject despawner;
 
     private void Awake()
     {
-        instance = this;
         player = PlayerBehaviour.instance.transform;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
@@ -65,6 +64,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (currentHealth != 0)
         {
             currentHealth -= playerDamage;
+            StartCoroutine(ChangeColor());
         }
 
         if (currentHealth <= 0)
@@ -76,6 +76,9 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 LevelManager.instance.enemies.Remove(this);
             }
+
+            var newDespawner = Instantiate(despawner, transform.position, quaternion.identity);
+            Destroy(newDespawner, 0.5f);
             Destroy(gameObject);
         }
     }
@@ -102,6 +105,14 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(cooldownToShoot);
         _canShoot = true;
         Fire();
+    }
+
+    private IEnumerator ChangeColor()
+    {
+        var currentColor = _spriteRenderer.color;
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _spriteRenderer.color = currentColor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

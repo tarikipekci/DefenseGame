@@ -4201,7 +4201,7 @@ MonoBehaviour:
     time: 0
     amountOfGreenSlime: 10
     amountOfFireSlime: 10
-    amountOfBrute: 10
+    amountOfBrute: 1
     finished: 0
   - waveCounter: 0
     time: 0

@@ -11,7 +11,7 @@ public class HealthItemBehaviour : MonoBehaviour
             if (PlayerBehaviour.instance.currentHealth < PlayerBehaviour.instance.maxHealth)
             {
                 PlayerBehaviour.instance.IncreaseHealthOfPlayer(healAmount);
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }

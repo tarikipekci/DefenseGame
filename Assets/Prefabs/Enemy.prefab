@@ -165,6 +165,7 @@ MonoBehaviour:
   movingCounter: 0
   movingCounterReset: 0
   xp: {fileID: 8082384930095241744, guid: d7151c5541f031c46895aa365d2b8e6c, type: 3}
+  despawner: {fileID: 3590588094465698512, guid: 8a87d9c5b596b3a4495984b5cce9b9d7, type: 3}
 --- !u!95 &1038083770
 Animator:
   serializedVersion: 5

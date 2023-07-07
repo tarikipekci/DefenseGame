@@ -9,7 +9,7 @@ public class FireballBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerBehaviour.instance.DecreaseHealthOfPlayer(damage);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
