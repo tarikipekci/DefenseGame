@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIBehaviour : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class UIBehaviour : MonoBehaviour
         isMenuOpened = false;
         pauseMenu.SetActive(false);
         pauseMenuAnimator.SetTrigger(Pressed);
+        Time.timeScale = 1f;
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
 }

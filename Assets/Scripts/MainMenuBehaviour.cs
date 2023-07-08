@@ -1,11 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject classPanel;
+    
     public void StartTheGame()
     {
-        SceneManager.LoadScene("Level");
+       classPanel.SetActive(true);
     }
     
     public void ExitTheGame()
