@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class UIBehaviour : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu, settings;
     [SerializeField] private Animator pauseMenuAnimator;
     public bool isMenuOpened;
     private static readonly int Pressed = Animator.StringToHash("pressed");
@@ -40,5 +40,10 @@ public class UIBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+    }
+
+    public void OpenSettings()
+    {
+        settings.SetActive(true);
     }
 }
