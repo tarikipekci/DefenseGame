@@ -11,13 +11,13 @@ internal struct Waves
 {
     [SerializeField] public int waveCounter;
     [SerializeField] public float time;
-    [SerializeField] public int amountOfGreenSlime, amountOfFireSlime, amountOfBrute;
+    [SerializeField] public int amountOfGreenSlime, amountOfFireSlime, amountOfBrute, amountOfDarkTablet;
     [SerializeField] public bool finished;
 }
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject greenSlime, brute, fireSlime;
+    [SerializeField] private GameObject greenSlime, brute, fireSlime, darkTablet;
     [SerializeField] private Text timerText;
     [SerializeField] public GameObject deathScreen;
     [SerializeField] private float cooldownToSpawn, cooldownToSpawnReset;
@@ -68,6 +68,13 @@ public class LevelManager : MonoBehaviour
             var newBrute = Instantiate(brute, randomLocation, Quaternion.identity);
             waves[waveCounter].amountOfBrute--;
             enemies.Add(newBrute.GetComponent<EnemyBehaviour>());
+        }
+
+        if (waves[waveCounter].amountOfDarkTablet > 0)
+        {
+            var newDarkTablet = Instantiate(darkTablet, randomLocation, Quaternion.identity);
+            waves[waveCounter].amountOfDarkTablet--;
+            enemies.Add(newDarkTablet.GetComponent<EnemyBehaviour>());
         }
 
         SetUpgradePanel(waveCounter);

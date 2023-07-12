@@ -8,18 +8,21 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float currentHealth, maxHealth;
     [SerializeField] private float moveSpeed;
     [SerializeField] private int damage;
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private Vector2 target;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private float dropChanceOfHealItem;
     [SerializeField] private GameObject healPotion;
     [SerializeField] private GameObject throwableObject;
     [SerializeField] private float throwableObjectSpeed, cooldownToShoot;
-    [SerializeField] private bool isFireSlime, isBrute, isSlime;
+    [SerializeField] private bool isFireSlime, isBrute, isSlime, isDarkTablet;
     private bool _canShoot = true;
     [SerializeField] private float movingCounter, movingCounterReset;
     [SerializeField] private GameObject xp;
     [SerializeField] private GameObject despawner;
+    private bool canGo;
+    private bool findNewVector = true;
+    private static readonly int Dash = Animator.StringToHash("dash");
 
     private void Awake()
     {
@@ -56,6 +59,12 @@ public class EnemyBehaviour : MonoBehaviour
                 _canShoot = false;
                 StartCoroutine(AllowToFire());
             }
+        }
+        else if (isDarkTablet)
+        {
+            _spriteRenderer.flipX = player.position.x > gameObject.transform.position.x;
+
+            StartCoroutine(DetectTargetAndGo());
         }
     }
 
@@ -113,6 +122,31 @@ public class EnemyBehaviour : MonoBehaviour
         _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _spriteRenderer.color = currentColor;
+    }
+
+    private IEnumerator DetectTargetAndGo()
+    {
+        if (findNewVector)
+        {
+            target = player.position;
+            yield return new WaitForSeconds(2f);
+            findNewVector = false;
+            canGo = true;
+        }
+
+        if (canGo)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+            GetComponent<Animator>().SetBool(Dash, true);
+        }
+
+        if (transform.position.Equals(target))
+        {
+            canGo = false;
+            GetComponent<Animator>().SetBool(Dash, false);
+            yield return new WaitForSeconds(2f);
+            findNewVector = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -4112,6 +4112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 34367770}
+  settings: {fileID: 0}
   pauseMenuAnimator: {fileID: 507519874}
   isMenuOpened: 0
 --- !u!114 &1957577199
@@ -4614,6 +4615,7 @@ MonoBehaviour:
   greenSlime: {fileID: 4660700051332894934, guid: 43b35e48ed5c493498ba688f1df9f748, type: 3}
   brute: {fileID: 3432462867225728495, guid: 6f44c531e062ed2418fb2427c75f76dd, type: 3}
   fireSlime: {fileID: 2239513277253593402, guid: 44fb80e6672440c4f8fd2d96706da6ff, type: 3}
+  darkTablet: {fileID: 4747098492996286525, guid: e2f686e6dbc916649b6305a1055098db, type: 3}
   timerText: {fileID: 783270175}
   deathScreen: {fileID: 1111747269}
   cooldownToSpawn: 2
@@ -4622,39 +4624,45 @@ MonoBehaviour:
   waves:
   - waveCounter: 1
     time: 20
-    amountOfGreenSlime: 10
+    amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
+    amountOfDarkTablet: 1
     finished: 0
   - waveCounter: 2
     time: 0
     amountOfGreenSlime: 15
     amountOfFireSlime: 2
     amountOfBrute: 0
+    amountOfDarkTablet: 0
     finished: 0
   - waveCounter: 0
     time: 0
     amountOfGreenSlime: 30
     amountOfFireSlime: 5
     amountOfBrute: 0
+    amountOfDarkTablet: 0
     finished: 0
   - waveCounter: 0
     time: 0
     amountOfGreenSlime: 10
     amountOfFireSlime: 10
     amountOfBrute: 1
+    amountOfDarkTablet: 0
     finished: 0
   - waveCounter: 0
     time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
+    amountOfDarkTablet: 0
     finished: 0
   - waveCounter: 0
     time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
+    amountOfDarkTablet: 0
     finished: 0
   enemies: []
   upgradePanel: {fileID: 1560973863}
