@@ -105,7 +105,6 @@ MonoBehaviour:
   maxHealth: 20
   moveSpeed: 2
   damage: 3
-  player: {fileID: 0}
   target: {x: 0, y: 0}
   _spriteRenderer: {fileID: 3432462867225728494}
   dropChanceOfHealItem: 100
@@ -116,9 +115,11 @@ MonoBehaviour:
   isFireSlime: 0
   isBrute: 1
   isSlime: 0
+  isDarkTablet: 0
+  isImp: 0
   movingCounter: 0
   movingCounterReset: 0
-  xp: {fileID: 8082384930095241744, guid: d7151c5541f031c46895aa365d2b8e6c, type: 3}
+  xp: {fileID: 8082384930095241744, guid: 47f58a72fd85dfc4ebe4358bbba17778, type: 3}
   despawner: {fileID: 3590588094465698512, guid: 8a87d9c5b596b3a4495984b5cce9b9d7, type: 3}
 --- !u!61 &3432462867225728490
 BoxCollider2D:
@@ -200,4 +201,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c403eabb75c8e0149bae71b01e191124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6501488143138858230, guid: d7151c5541f031c46895aa365d2b8e6c, type: 3}
+  player: {fileID: 0}

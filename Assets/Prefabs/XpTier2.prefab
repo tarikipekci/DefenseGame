@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6438718940729193740}
   - component: {fileID: 483021270950145352}
   m_Layer: 0
-  m_Name: Xp
+  m_Name: XpTier2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2070266720, guid: 3fa7ac5d8824ee446b4f9ad5173953d7, type: 3}
+  m_Sprite: {fileID: -1061618128, guid: 521fe3bd8b5442544974112a6ef72c02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   maxDistanceFromPlayer: 3
+  xpTier: 2
 --- !u!50 &-6438718940729193740
 Rigidbody2D:
   serializedVersion: 4

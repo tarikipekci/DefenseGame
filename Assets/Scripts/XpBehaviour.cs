@@ -5,6 +5,7 @@ public class XpBehaviour : MonoBehaviour
     private Transform player;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float maxDistanceFromPlayer;
+    [SerializeField] private float xpTier;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class XpBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerBehaviour.instance.xpAmount += 2 / (PlayerBehaviour.instance.levelBackup + 1);
+            PlayerBehaviour.instance.xpAmount += 2 / (PlayerBehaviour.instance.levelBackup + xpTier);
             Destroy(gameObject);
         }
     }

@@ -3922,7 +3922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860324147}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.3, z: 0.0000076293945}
+  m_LocalPosition: {x: -0.3, y: 0.3, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4616,6 +4616,7 @@ MonoBehaviour:
   brute: {fileID: 3432462867225728495, guid: 6f44c531e062ed2418fb2427c75f76dd, type: 3}
   fireSlime: {fileID: 2239513277253593402, guid: 44fb80e6672440c4f8fd2d96706da6ff, type: 3}
   darkTablet: {fileID: 4747098492996286525, guid: e2f686e6dbc916649b6305a1055098db, type: 3}
+  imp: {fileID: 3349156321071598887, guid: 6cf7b6dad44f51942845e4d1773d9278, type: 3}
   timerText: {fileID: 783270175}
   deathScreen: {fileID: 1111747269}
   cooldownToSpawn: 2
@@ -4623,11 +4624,12 @@ MonoBehaviour:
   spawner: {fileID: 413078087782881411, guid: 9b3d3d6dab8148844816ad301b6e8439, type: 3}
   waves:
   - waveCounter: 1
-    time: 20
+    time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 1
+    amountOfImp: 0
     finished: 0
   - waveCounter: 2
     time: 0
@@ -4635,6 +4637,7 @@ MonoBehaviour:
     amountOfFireSlime: 2
     amountOfBrute: 0
     amountOfDarkTablet: 0
+    amountOfImp: 0
     finished: 0
   - waveCounter: 0
     time: 0
@@ -4642,6 +4645,7 @@ MonoBehaviour:
     amountOfFireSlime: 5
     amountOfBrute: 0
     amountOfDarkTablet: 0
+    amountOfImp: 0
     finished: 0
   - waveCounter: 0
     time: 0
@@ -4649,6 +4653,7 @@ MonoBehaviour:
     amountOfFireSlime: 10
     amountOfBrute: 1
     amountOfDarkTablet: 0
+    amountOfImp: 0
     finished: 0
   - waveCounter: 0
     time: 0
@@ -4656,6 +4661,7 @@ MonoBehaviour:
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 0
+    amountOfImp: 0
     finished: 0
   - waveCounter: 0
     time: 0
@@ -4663,6 +4669,7 @@ MonoBehaviour:
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 0
+    amountOfImp: 0
     finished: 0
   enemies: []
   upgradePanel: {fileID: 1560973863}

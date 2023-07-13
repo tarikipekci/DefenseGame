@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private float currentHealth, maxHealth;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed, moveSpeedReset, debuffSpeed;
     [SerializeField] private int damage;
     private Transform player;
     [SerializeField] private Vector2 target;
@@ -15,13 +15,16 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject healPotion;
     [SerializeField] private GameObject throwableObject;
     [SerializeField] private float throwableObjectSpeed, cooldownToShoot;
-    [SerializeField] private bool isFireSlime, isBrute, isSlime, isDarkTablet;
+    [SerializeField] private bool isFireSlime, isBrute, isSlime, isDarkTablet, isImp;
     private bool _canShoot = true;
     [SerializeField] private float movingCounter, movingCounterReset;
     [SerializeField] private GameObject xp;
     [SerializeField] private GameObject despawner;
-    private bool canGo;
-    private bool findNewVector = true;
+    [SerializeField] private float debuffLevel;
+    private bool findNewTarget = true;
+    [SerializeField] private float coolDownForSlowDebuff, coolDownForSlowDebuffReset;
+
+    [SerializeField] private float debuffDuration, debuffDurationReset;
     private static readonly int Dash = Animator.StringToHash("dash");
 
     private void Awake()
@@ -30,6 +33,10 @@ public class EnemyBehaviour : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         movingCounterReset = movingCounter;
+        debuffSpeed = moveSpeed - debuffLevel;
+        moveSpeedReset = moveSpeed;
+        debuffDurationReset = debuffDuration;
+        coolDownForSlowDebuffReset = coolDownForSlowDebuff;
     }
 
     private void Update()
@@ -64,7 +71,13 @@ public class EnemyBehaviour : MonoBehaviour
         {
             _spriteRenderer.flipX = player.position.x > gameObject.transform.position.x;
 
-            StartCoroutine(DetectTargetAndGo());
+            DetectTargetAndGo();
+        }
+
+        else if (isImp)
+        {
+            _spriteRenderer.flipX = player.position.x > gameObject.transform.position.x;
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
         }
     }
 
@@ -124,28 +137,38 @@ public class EnemyBehaviour : MonoBehaviour
         _spriteRenderer.color = currentColor;
     }
 
-    private IEnumerator DetectTargetAndGo()
+    private void DetectTargetAndGo()
     {
-        if (findNewVector)
+        if (findNewTarget)
         {
             target = player.position;
-            yield return new WaitForSeconds(2f);
-            findNewVector = false;
-            canGo = true;
+            findNewTarget = false;
         }
 
-        if (canGo)
+        if (debuffDuration > 0)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+            debuffDuration -= Time.deltaTime;
+            moveSpeed = moveSpeedReset;
             GetComponent<Animator>().SetBool(Dash, true);
+            transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         }
 
-        if (transform.position.Equals(target))
+        if (debuffDuration <= 0)
         {
-            canGo = false;
-            GetComponent<Animator>().SetBool(Dash, false);
-            yield return new WaitForSeconds(2f);
-            findNewVector = true;
+            if (coolDownForSlowDebuff > 0)
+            {
+                findNewTarget = true;
+                GetComponent<Animator>().SetBool(Dash, false);
+                moveSpeed = debuffSpeed;
+                transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+                coolDownForSlowDebuff -= Time.deltaTime;
+            }
+
+            if (coolDownForSlowDebuff <= 0)
+            {
+                coolDownForSlowDebuff = coolDownForSlowDebuffReset;
+                debuffDuration = debuffDurationReset;
+            }
         }
     }
 
