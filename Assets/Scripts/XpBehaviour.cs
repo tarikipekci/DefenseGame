@@ -3,7 +3,7 @@ using UnityEngine;
 public class XpBehaviour : MonoBehaviour
 {
     private Transform player;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed;   
     [SerializeField] private float maxDistanceFromPlayer;
     [SerializeField] private float xpTier;
 

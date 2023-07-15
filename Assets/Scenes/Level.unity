@@ -2009,8 +2009,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -834.85}
-  m_SizeDelta: {x: 730.12, y: 146.96997}
+  m_AnchoredPosition: {x: 20, y: -635.35}
+  m_SizeDelta: {x: 730.12, y: 107.06999}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1000521626
 MonoBehaviour:
@@ -2942,10 +2942,10 @@ RectTransform:
   m_Father: {fileID: 1560973866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -461.82007, y: 5}
-  m_SizeDelta: {x: -1149.88, y: -225.15}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -456, y: 0}
+  m_SizeDelta: {x: 770.12, y: 655.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418004141
 MonoBehaviour:
@@ -3047,8 +3047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 385.06, y: -427.425}
-  m_SizeDelta: {x: 730.12, y: 146.97}
+  m_AnchoredPosition: {x: 385.06, y: -327.675}
+  m_SizeDelta: {x: 730.12, y: 107.06999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436582725
 MonoBehaviour:
@@ -3204,8 +3204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 385.06, y: -594.395}
-  m_SizeDelta: {x: 730.12, y: 146.97}
+  m_AnchoredPosition: {x: 385.06, y: -454.74496}
+  m_SizeDelta: {x: 730.12, y: 107.06999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521246176
 MonoBehaviour:
@@ -3362,8 +3362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 385.06, y: -260.45502}
-  m_SizeDelta: {x: 730.12, y: 146.97}
+  m_AnchoredPosition: {x: 385.06, y: -200.60498}
+  m_SizeDelta: {x: 730.12, y: 107.06999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702746999
 MonoBehaviour:
@@ -3542,7 +3542,7 @@ MonoBehaviour:
   arrow: {fileID: 954642815942476682, guid: 820c7532695ca4e4abcfd5c1c330ae02, type: 3}
   speedArrow: 15
   cooldownToShoot: 0.3
-  attackSpeed: 0.001
+  attackSpeed: 0.02
 --- !u!212 &1742476778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3732,8 +3732,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 385.06, y: -93.484985}
-  m_SizeDelta: {x: 730.12, y: 146.97}
+  m_AnchoredPosition: {x: 385.06, y: -73.535}
+  m_SizeDelta: {x: 730.12, y: 107.06999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819272793
 MonoBehaviour:
@@ -4620,7 +4620,7 @@ MonoBehaviour:
   imp: {fileID: 3349156321071598887, guid: 6cf7b6dad44f51942845e4d1773d9278, type: 3}
   timerText: {fileID: 783270175}
   deathScreen: {fileID: 1111747269}
-  cooldownToSpawn: 2
+  cooldownToSpawn: 1.5
   cooldownToSpawnReset: 0
   spawner: {fileID: 413078087782881411, guid: 9b3d3d6dab8148844816ad301b6e8439, type: 3}
   waves:
@@ -4651,7 +4651,7 @@ MonoBehaviour:
   - waveCounter: 0
     time: 0
     amountOfGreenSlime: 10
-    amountOfFireSlime: 10
+    amountOfFireSlime: 6
     amountOfBrute: 0
     amountOfDarkTablet: 3
     amountOfImp: 0

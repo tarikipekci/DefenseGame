@@ -19,8 +19,10 @@ public class PlayerBehaviour : MonoBehaviour
     private static readonly int Archer = Animator.StringToHash("archer");
     private static readonly int Mage = Animator.StringToHash("mage");
     private static readonly int Knight = Animator.StringToHash("knight");
-    [SerializeField] private Image amblem,bar;
-    [SerializeField] private Sprite arrow, magicBall, archerBar, mageBar, knightBar, archerAmblem, mageAmblem, knightAmblem;
+    [SerializeField] private Image amblem, bar;
+
+    [SerializeField]
+    private Sprite arrow, magicBall, archerBar, mageBar, knightBar, archerAmblem, mageAmblem, knightAmblem;
 
 
     private void Awake()
@@ -128,16 +130,16 @@ public class PlayerBehaviour : MonoBehaviour
     private void UpdateXpUI()
     {
         CalculateLevel();
+        levelCounterText.text = level.ToString();
         xpBar.value = xpAmount;
     }
 
     private void CalculateLevel()
     {
-        if (xpAmount == 10f)
+        if (xpAmount >= 10f)
         {
             level++;
-            levelBackup = level;
-            levelCounterText.text = level.ToString();
+            levelBackup++;
             xpAmount = 0f;
         }
     }
