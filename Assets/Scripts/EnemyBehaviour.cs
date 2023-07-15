@@ -81,7 +81,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void DecreaseHealthOfEnemy(int playerDamage)
+    public void DecreaseHealthOfEnemy(float playerDamage)
     {
         if (currentHealth != 0)
         {

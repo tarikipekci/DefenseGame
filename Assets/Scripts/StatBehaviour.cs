@@ -4,7 +4,7 @@ public class StatBehaviour : MonoBehaviour
 {
     [SerializeField] private Animator _animatorV, _animatorD, _animatorA, _animatorM;
     private static readonly int Pressed = Animator.StringToHash("pressed");
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject panel, continueButton;
 
     public void IncreaseVitality()
     {
@@ -15,7 +15,8 @@ public class StatBehaviour : MonoBehaviour
             PlayerBehaviour.instance.currentHealth = PlayerBehaviour.instance.maxHealth;
             _animatorV.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
-            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
+            LevelManager.instance.vitalityLevel++;
+            UpdateSkillPoints();
         }
     }
 
@@ -26,7 +27,8 @@ public class StatBehaviour : MonoBehaviour
             PlayerBehaviour.instance.moveSpeed += 1;
             _animatorM.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
-            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
+            LevelManager.instance.movementSpeedLevel++;
+            UpdateSkillPoints();
         }
     }
 
@@ -34,10 +36,11 @@ public class StatBehaviour : MonoBehaviour
     {
         if (PlayerBehaviour.instance.level >= 1)
         {
-            WeaponBehaviour.instance.damage += 1;
+            WeaponBehaviour.instance.damage += 0.25f;
             _animatorD.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
-            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
+            LevelManager.instance.damageLevel++;
+            UpdateSkillPoints();
         }
     }
 
@@ -48,13 +51,25 @@ public class StatBehaviour : MonoBehaviour
             WeaponBehaviour.instance.attackSpeed += 0.001f;
             _animatorA.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
-            LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level.ToString();
+            LevelManager.instance.attackSpeedLevel++;
+            UpdateSkillPoints();
         }
     }
 
     public void CloseUpgradePanel()
     {
         panel.SetActive(false);
+        continueButton.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    private void UpdateSkillPoints()
+    {
+        LevelManager.instance.SetUpgradePanel();
+        LevelManager.instance.currentPoint.text = PlayerBehaviour.instance.level + " points left!";
+        if (PlayerBehaviour.instance.level <= 0)
+        {
+            continueButton.SetActive(true);
+        }
     }
 }

@@ -913,7 +913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &389707175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2944,7 +2944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -461.82007, y: -34.140015}
+  m_AnchoredPosition: {x: -461.82007, y: 5}
   m_SizeDelta: {x: -1149.88, y: -225.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418004141
@@ -4132,6 +4132,7 @@ MonoBehaviour:
   _animatorA: {fileID: 1282035586}
   _animatorM: {fileID: 348916476}
   panel: {fileID: 1560973863}
+  continueButton: {fileID: 389707174}
 --- !u!212 &1957577200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4625,10 +4626,10 @@ MonoBehaviour:
   waves:
   - waveCounter: 1
     time: 0
-    amountOfGreenSlime: 0
+    amountOfGreenSlime: 10
     amountOfFireSlime: 0
     amountOfBrute: 0
-    amountOfDarkTablet: 1
+    amountOfDarkTablet: 0
     amountOfImp: 0
     finished: 0
   - waveCounter: 2
@@ -4651,8 +4652,8 @@ MonoBehaviour:
     time: 0
     amountOfGreenSlime: 10
     amountOfFireSlime: 10
-    amountOfBrute: 1
-    amountOfDarkTablet: 0
+    amountOfBrute: 0
+    amountOfDarkTablet: 3
     amountOfImp: 0
     finished: 0
   - waveCounter: 0
@@ -4675,9 +4676,13 @@ MonoBehaviour:
   upgradePanel: {fileID: 1560973863}
   vitality: {fileID: 1819272793}
   damage: {fileID: 1702746999}
-  waitToFire: {fileID: 1436582725}
+  attackSpeed: {fileID: 1436582725}
   movementSpeed: {fileID: 1521246176}
   currentPoint: {fileID: 1000521626}
+  vitalityLevel: 0
+  damageLevel: 0
+  attackSpeedLevel: 0
+  movementSpeedLevel: 0
 --- !u!4 &2070534772
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class WeaponBehaviour : MonoBehaviour
     private bool canShoot = true;
     private GameObject target;
     [SerializeField] private float shootingDistance;
-    [SerializeField] public int damage;
+    [SerializeField] public float damage;
     public GameObject arrow;
     [SerializeField] private float speedArrow;
     [SerializeField] public float cooldownToShoot;

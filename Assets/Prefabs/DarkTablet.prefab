@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 100
+  maxHealth: 6
   moveSpeed: 10
   moveSpeedReset: 0
   debuffSpeed: 0
-  damage: 0
+  damage: 2
   target: {x: 0, y: 0}
   _spriteRenderer: {fileID: 7102865346099771929}
   dropChanceOfHealItem: 5
