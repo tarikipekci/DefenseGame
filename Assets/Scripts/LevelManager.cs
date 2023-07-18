@@ -12,6 +12,12 @@ internal struct Waves
     [SerializeField] public int waveCounter;
     [SerializeField] public float time;
     [SerializeField] public int amountOfGreenSlime, amountOfFireSlime, amountOfBrute, amountOfDarkTablet, amountOfImp;
+
+    public int CountEnemies()
+    {
+        return amountOfGreenSlime + amountOfFireSlime + amountOfBrute + amountOfDarkTablet + amountOfImp;
+    }
+
     [SerializeField] public bool finished;
 }
 
@@ -29,6 +35,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
     public float vitalityLevel = 1f, damageLevel = 1f, attackSpeedLevel = 1f, movementSpeedLevel = 1f;
+    [SerializeField] private Text enemyCounterText;
 
     private void Awake()
     {
@@ -45,10 +52,14 @@ public class LevelManager : MonoBehaviour
     private IEnumerator RandomSpawn(int waveCounter)
     {
         var randomLocation = new Vector3(Random.Range(-17, 17), Random.Range(9, -9), 0f);
-        var newSpawner = Instantiate(spawner, randomLocation, Quaternion.identity);
-        Destroy(newSpawner, 1f);
+        if (enemies.Count > 0)
+        {
+            var newSpawner = Instantiate(spawner, randomLocation, Quaternion.identity);
+            Destroy(newSpawner, 1f);
 
-        yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
+        }
+
 
         if (waves[waveCounter].amountOfGreenSlime > 0)
         {
@@ -85,6 +96,7 @@ public class LevelManager : MonoBehaviour
             enemies.Add(newImp.GetComponent<EnemyBehaviour>());
         }
 
+        enemyCounterText.text = waves[waveCounter].CountEnemies().ToString();
         SetUpgradePanel();
         if (enemies.Count == 0)
         {
