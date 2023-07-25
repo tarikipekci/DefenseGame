@@ -29,18 +29,20 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float cooldownToSpawn, cooldownToSpawnReset;
     public static LevelManager instance;
     [SerializeField] private GameObject spawner;
-    private int wave;
+    private int wave, currentEnemyCount;
     [SerializeField] private Waves[] waves;
     public List<EnemyBehaviour> enemies;
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
-    public float vitalityLevel = 1f, damageLevel = 1f, attackSpeedLevel = 1f, movementSpeedLevel = 1f;
+    public int vitalityLevel = 1, damageLevel = 1, attackSpeedLevel = 1, movementSpeedLevel = 1;
     [SerializeField] private Text enemyCounterText;
 
     private void Awake()
     {
         instance = this;
         cooldownToSpawnReset = cooldownToSpawn;
+        currentEnemyCount = waves[wave].CountEnemies();
+        enemyCounterText.text = currentEnemyCount.ToString();
     }
 
     private void Update()
@@ -96,12 +98,18 @@ public class LevelManager : MonoBehaviour
             enemies.Add(newImp.GetComponent<EnemyBehaviour>());
         }
 
-        enemyCounterText.text = waves[waveCounter].CountEnemies().ToString();
         SetUpgradePanel();
         if (enemies.Count == 0)
         {
             wave++;
+            currentEnemyCount = waves[wave].CountEnemies();
         }
+    }
+
+    public void ReturnHowManyEnemiesLeft()
+    {
+        --currentEnemyCount;
+        enemyCounterText.text = currentEnemyCount.ToString();
     }
 
     public void SetUpgradePanel()

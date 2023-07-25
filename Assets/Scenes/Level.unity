@@ -2474,7 +2474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.5, y: -98.4}
+  m_AnchoredPosition: {x: -53.5, y: -98.399994}
   m_SizeDelta: {x: 50.55, y: 53.35}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1248105499
@@ -4867,7 +4867,7 @@ MonoBehaviour:
     amountOfDarkTablet: 0
     amountOfImp: 0
     finished: 0
-  - waveCounter: 0
+  - waveCounter: 3
     time: 0
     amountOfGreenSlime: 30
     amountOfFireSlime: 5
@@ -4875,7 +4875,7 @@ MonoBehaviour:
     amountOfDarkTablet: 0
     amountOfImp: 0
     finished: 0
-  - waveCounter: 0
+  - waveCounter: 4
     time: 0
     amountOfGreenSlime: 10
     amountOfFireSlime: 6
@@ -4883,7 +4883,7 @@ MonoBehaviour:
     amountOfDarkTablet: 3
     amountOfImp: 0
     finished: 0
-  - waveCounter: 0
+  - waveCounter: 5
     time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
@@ -4906,10 +4906,10 @@ MonoBehaviour:
   attackSpeed: {fileID: 1436582725}
   movementSpeed: {fileID: 1521246176}
   currentPoint: {fileID: 1000521626}
-  vitalityLevel: 0
-  damageLevel: 0
-  attackSpeedLevel: 0
-  movementSpeedLevel: 0
+  vitalityLevel: 1
+  damageLevel: 1
+  attackSpeedLevel: 1
+  movementSpeedLevel: 1
   enemyCounterText: {fileID: 1553622024}
 --- !u!4 &2070534772
 Transform:

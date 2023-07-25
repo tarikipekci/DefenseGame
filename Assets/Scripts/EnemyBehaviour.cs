@@ -97,6 +97,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (contains)
             {
                 LevelManager.instance.enemies.Remove(this);
+                LevelManager.instance.ReturnHowManyEnemiesLeft();
             }
 
             var newDespawner = Instantiate(despawner, transform.position, quaternion.identity);
