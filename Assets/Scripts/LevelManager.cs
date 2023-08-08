@@ -104,6 +104,8 @@ public class LevelManager : MonoBehaviour
             wave++;
             currentEnemyCount = waves[wave].CountEnemies();
         }
+
+        enemyCounterText.text = currentEnemyCount.ToString();
     }
 
     public void ReturnHowManyEnemiesLeft()

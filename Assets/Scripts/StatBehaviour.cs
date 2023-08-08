@@ -48,7 +48,7 @@ public class StatBehaviour : MonoBehaviour
     {
         if (PlayerBehaviour.instance.level >= 1)
         {
-            WeaponBehaviour.instance.attackSpeed += 0.001f;
+            WeaponBehaviour.instance.attackSpeed += 0.01f;
             _animatorA.SetTrigger(Pressed);
             PlayerBehaviour.instance.level--;
             LevelManager.instance.attackSpeedLevel++;

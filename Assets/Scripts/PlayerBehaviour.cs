@@ -1,3 +1,4 @@
+using Joystick_Pack.Scripts.Joysticks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     private static readonly int Walking = Animator.StringToHash("walking");
     [SerializeField] public float xpAmount;
     [SerializeField] public float level, levelBackup;
-    [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private FloatingJoystick _joystick;
 
     private static readonly int Archer = Animator.StringToHash("archer");
     private static readonly int Mage = Animator.StringToHash("mage");
