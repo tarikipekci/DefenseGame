@@ -10,20 +10,22 @@ using Random = UnityEngine.Random;
 internal struct Waves
 {
     [SerializeField] public int waveCounter;
-    [SerializeField] public float time;
-    [SerializeField] public int amountOfGreenSlime, amountOfFireSlime, amountOfBrute, amountOfDarkTablet, amountOfImp;
+    [SerializeField] public int amountOfGreenSlime,
+        amountOfFireSlime,
+        amountOfBrute,
+        amountOfDarkTablet,
+        amountOfImp,
+        amountOfBug;
 
     public int CountEnemies()
     {
-        return amountOfGreenSlime + amountOfFireSlime + amountOfBrute + amountOfDarkTablet + amountOfImp;
+        return amountOfGreenSlime + amountOfFireSlime + amountOfBrute + amountOfDarkTablet + amountOfImp + amountOfBug;
     }
-
-    [SerializeField] public bool finished;
 }
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject greenSlime, brute, fireSlime, darkTablet, imp;
+    [SerializeField] private GameObject greenSlime, brute, fireSlime, darkTablet, imp, bug;
     [SerializeField] private Text timerText;
     [SerializeField] public GameObject deathScreen;
     [SerializeField] private float cooldownToSpawn, cooldownToSpawnReset;
@@ -54,7 +56,8 @@ public class LevelManager : MonoBehaviour
     private IEnumerator RandomSpawn(int waveCounter)
     {
         var randomLocation = new Vector3(Random.Range(-17, 17), Random.Range(9, -9), 0f);
-        if (enemies.Count > 0)
+        //Vector3[] randomLocations;
+        if (currentEnemyCount > 1)
         {
             var newSpawner = Instantiate(spawner, randomLocation, Quaternion.identity);
             Destroy(newSpawner, 1f);
@@ -96,6 +99,13 @@ public class LevelManager : MonoBehaviour
             var newImp = Instantiate(imp, randomLocation, Quaternion.identity);
             waves[waveCounter].amountOfImp--;
             enemies.Add(newImp.GetComponent<EnemyBehaviour>());
+        }
+
+        if (waves[waveCounter].amountOfBug > 0)
+        {
+            var newBug = Instantiate(bug, randomLocation, Quaternion.identity);
+            waves[waveCounter].amountOfBug--;
+            enemies.Add(newBug.GetComponent<EnemyBehaviour>());
         }
 
         SetUpgradePanel();

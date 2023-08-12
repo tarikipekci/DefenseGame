@@ -4744,6 +4744,7 @@ MonoBehaviour:
   fireSlime: {fileID: 2239513277253593402, guid: 44fb80e6672440c4f8fd2d96706da6ff, type: 3}
   darkTablet: {fileID: 4747098492996286525, guid: e2f686e6dbc916649b6305a1055098db, type: 3}
   imp: {fileID: 3349156321071598887, guid: 6cf7b6dad44f51942845e4d1773d9278, type: 3}
+  bug: {fileID: 2268414710098425109, guid: 6f031fc5033a2974eb6b716a39283aad, type: 3}
   timerText: {fileID: 783270175}
   deathScreen: {fileID: 1111747269}
   cooldownToSpawn: 1.5
@@ -4751,53 +4752,47 @@ MonoBehaviour:
   spawner: {fileID: 413078087782881411, guid: 9b3d3d6dab8148844816ad301b6e8439, type: 3}
   waves:
   - waveCounter: 1
-    time: 0
     amountOfGreenSlime: 10
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 0
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   - waveCounter: 2
-    time: 0
     amountOfGreenSlime: 15
     amountOfFireSlime: 2
     amountOfBrute: 0
     amountOfDarkTablet: 0
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   - waveCounter: 3
-    time: 0
     amountOfGreenSlime: 30
     amountOfFireSlime: 5
     amountOfBrute: 0
     amountOfDarkTablet: 0
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   - waveCounter: 4
-    time: 0
     amountOfGreenSlime: 10
-    amountOfFireSlime: 6
+    amountOfFireSlime: 5
     amountOfBrute: 0
     amountOfDarkTablet: 3
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   - waveCounter: 5
-    time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 0
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   - waveCounter: 0
-    time: 0
     amountOfGreenSlime: 0
     amountOfFireSlime: 0
     amountOfBrute: 0
     amountOfDarkTablet: 0
     amountOfImp: 0
-    finished: 0
+    amountOfBug: 0
   enemies: []
   upgradePanel: {fileID: 1560973863}
   vitality: {fileID: 1819272793}
@@ -4910,7 +4905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.27912
+      value: 0.27905273
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

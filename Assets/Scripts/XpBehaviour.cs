@@ -24,7 +24,7 @@ public class XpBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerBehaviour.instance.xpAmount += 2 / (PlayerBehaviour.instance.levelBackup + xpTier);
+            PlayerBehaviour.instance.xpAmount += (xpTier + 1) / (PlayerBehaviour.instance.levelBackup + 1f);
             Destroy(gameObject);
         }
     }

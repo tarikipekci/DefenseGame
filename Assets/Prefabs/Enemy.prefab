@@ -150,8 +150,9 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   moveSpeed: 4
+  moveSpeedReset: 0
+  debuffSpeed: 0
   damage: 1
-  player: {fileID: 0}
   target: {x: 0, y: 0}
   _spriteRenderer: {fileID: 0}
   dropChanceOfHealItem: 10
@@ -162,10 +163,17 @@ MonoBehaviour:
   isFireSlime: 0
   isBrute: 0
   isSlime: 1
+  isDarkTablet: 0
+  isImp: 0
   movingCounter: 0
   movingCounterReset: 0
   xp: {fileID: 8082384930095241744, guid: d7151c5541f031c46895aa365d2b8e6c, type: 3}
   despawner: {fileID: 3590588094465698512, guid: 8a87d9c5b596b3a4495984b5cce9b9d7, type: 3}
+  debuffLevel: 0
+  coolDownForSlowDebuff: 0
+  coolDownForSlowDebuffReset: 0
+  debuffDuration: 0
+  debuffDurationReset: 0
 --- !u!95 &1038083770
 Animator:
   serializedVersion: 5

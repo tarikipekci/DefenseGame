@@ -3,22 +3,36 @@ using UnityEngine.UI;
 
 public class SettingsBehaviour : MonoBehaviour
 {
-   [SerializeField] private Slider volumeSlider;
-   [SerializeField] private Text volumeLevel;
-   [SerializeField] private GameObject settings;
+    [SerializeField] private Slider generalSoundSlider, ambientSoundSlider, musicSoundSlider;
+    [SerializeField] private Text generalSoundLevel, ambientSoundLevel, musicSoundLevel;
+    [SerializeField] private GameObject settings;
+    private float hundred = 100f;
 
-   public void VolumeSlider(float volume)
-   {
-      volumeLevel.text = volume.ToString("0.0");
-   }
+    public void GeneralSoundSlider(float volume)
+    {
+        volume = generalSoundSlider.value;
+        generalSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
+    }
 
-   public void OpenSettings()
-   {
-      settings.SetActive(true);
-   }
+    public void AmbientSoundSlider(float volume)
+    {
+        volume = ambientSoundSlider.value;
+        ambientSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
+    }
 
-   public void CloseSettings()
-   {
-      settings.SetActive(false);
-   }
+    public void MusicSoundSlider(float volume)
+    {
+        volume = musicSoundSlider.value;
+        musicSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
+    }
+
+    public void OpenSettings()
+    {
+        settings.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settings.SetActive(false);
+    }
 }
