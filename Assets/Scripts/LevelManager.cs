@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 internal struct Waves
 {
     [SerializeField] public int waveCounter;
+
     [SerializeField] public int amountOfGreenSlime,
         amountOfFireSlime,
         amountOfBrute,
@@ -38,6 +39,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
     public int vitalityLevel = 1, damageLevel = 1, attackSpeedLevel = 1, movementSpeedLevel = 1;
     [SerializeField] private Text enemyCounterText;
+    [SerializeField] private GameObject anvilShadow, anvil, copiedAnvil;
+    [SerializeField] private float anvilDropSpeed;
+    [SerializeField] private Vector2 target;
+    public static bool anvilDropped;
+
 
     private void Awake()
     {
@@ -51,6 +57,34 @@ public class LevelManager : MonoBehaviour
     {
         DisplayTimeCounter();
         CanSpawn();
+        if (anvilDropped)
+        {
+            SpawnAnvil(target);
+        }
+    }
+
+    public IEnumerator DropAnvil()
+    {
+        GameObject newAnvil;
+        var dropLocation = new Vector2(Random.Range(-17, 17), Random.Range(9, -9));
+        var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
+        Destroy(newAnvilShadow, 1.15f);
+        yield return new WaitForSeconds(1.15f);
+        newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 12), Quaternion.identity);
+        copiedAnvil = newAnvil;
+        target = dropLocation;
+        anvilDropped = true;
+    }
+
+    private void SpawnAnvil(Vector2 dropLocation)
+    {
+        copiedAnvil.transform.position =
+            Vector2.MoveTowards(copiedAnvil.transform.position, dropLocation, anvilDropSpeed * Time.deltaTime);
+        if (copiedAnvil.transform.position.Equals(dropLocation))
+        {
+            anvilDropped = false;
+            Destroy(copiedAnvil, 0.5f);
+        }
     }
 
     private IEnumerator RandomSpawn(int waveCounter)
