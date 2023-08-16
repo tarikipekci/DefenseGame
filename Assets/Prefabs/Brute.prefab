@@ -104,11 +104,15 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 20
   moveSpeed: 2
+  moveSpeedReset: 0
+  debuffSpeed: 0
   damage: 3
   target: {x: 0, y: 0}
   _spriteRenderer: {fileID: 3432462867225728494}
   dropChanceOfHealItem: 100
+  dropChanceOfAnvilItem: 20
   healPotion: {fileID: 8536557143647732567, guid: 4a6d6cdeedfaca4448ec54c600f14529, type: 3}
+  anvilDrop: {fileID: 8342683303646754505, guid: 9a87c7771c8ee804b871b68228b3211c, type: 3}
   throwableObject: {fileID: 0}
   throwableObjectSpeed: 0
   cooldownToShoot: 0
@@ -121,6 +125,11 @@ MonoBehaviour:
   movingCounterReset: 0
   xp: {fileID: 8082384930095241744, guid: 47f58a72fd85dfc4ebe4358bbba17778, type: 3}
   despawner: {fileID: 3590588094465698512, guid: 8a87d9c5b596b3a4495984b5cce9b9d7, type: 3}
+  debuffLevel: 0
+  coolDownForSlowDebuff: 0
+  coolDownForSlowDebuffReset: 0
+  debuffDuration: 0
+  debuffDurationReset: 0
 --- !u!61 &3432462867225728490
 BoxCollider2D:
   m_ObjectHideFlags: 0
