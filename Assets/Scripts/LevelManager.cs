@@ -39,8 +39,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
     public int vitalityLevel = 1, damageLevel = 1, attackSpeedLevel = 1, movementSpeedLevel = 1;
     [SerializeField] private Text enemyCounterText;
-    [SerializeField] private GameObject anvilShadow, anvil, copiedAnvil, anvilTrace;
-    [SerializeField] private float anvilDropSpeed;
+    [SerializeField] private GameObject anvilShadow, anvil, copiedAnvil, anvilTrace, anvilShadowCopy;
+    [SerializeField] private float anvilDropSpeed, anvilShadowAnimationDuration = 1f;
     [SerializeField] private Vector2 target;
     private static bool anvilDropped;
 
@@ -68,8 +68,8 @@ public class LevelManager : MonoBehaviour
         GameObject newAnvil;
         var dropLocation = new Vector2(Random.Range(-17, 17), Random.Range(9, -9));
         var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
-        Destroy(newAnvilShadow, 1.5f);
-        yield return new WaitForSeconds(1f);
+        anvilShadowCopy = newAnvilShadow;
+        yield return new WaitForSeconds(anvilShadowAnimationDuration);
         newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 12), Quaternion.identity);
         copiedAnvil = newAnvil;
         target = dropLocation;
@@ -83,6 +83,7 @@ public class LevelManager : MonoBehaviour
         if (copiedAnvil.transform.position.Equals(dropLocation))
         {
             anvilDropped = false;
+            Destroy(anvilShadowCopy);
             var anvilTraceCopy = Instantiate(anvilTrace, new Vector3(dropLocation.x, dropLocation.y - 1f), Quaternion.identity);
             Destroy(copiedAnvil, 0.5f);
             Destroy(anvilTraceCopy,7f);

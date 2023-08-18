@@ -4027,13 +4027,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 2c405f7bb983d8145b88658c3b5b469c, type: 3}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 21300000, guid: 13058dabf1c31d84da2188b4583b1795, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.2, y: 3.2}
+  m_Size: {x: 80, y: 45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4046,10 +4046,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860324147}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.3, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -4809,7 +4809,9 @@ MonoBehaviour:
   anvil: {fileID: 790411745682532616, guid: ae140b5b31626db4fa36bc2d4475f711, type: 3}
   copiedAnvil: {fileID: 0}
   anvilTrace: {fileID: 2365542243901807382, guid: 84fa5261fe4168f4aa897c3e6b0c7f9f, type: 3}
+  anvilShadowCopy: {fileID: 0}
   anvilDropSpeed: 35
+  anvilShadowAnimationDuration: 1
   target: {x: 0, y: 0}
 --- !u!4 &2070534772
 Transform:
