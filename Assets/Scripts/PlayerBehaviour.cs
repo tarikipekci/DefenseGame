@@ -16,6 +16,8 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] public float xpAmount;
     [SerializeField] public float level, levelBackup;
     [SerializeField] private FloatingJoystick _joystick;
+    private bool shieldEnabled;
+    [SerializeField] private GameObject shield;
 
     private static readonly int Archer = Animator.StringToHash("archer");
     private static readonly int Mage = Animator.StringToHash("mage");
@@ -102,7 +104,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (currentHealth != 0)
         {
-            currentHealth -= damage;
+            if (shieldEnabled)
+            {
+                shield.SetActive(false);
+                shieldEnabled = false;
+            }
+            else
+            {
+                currentHealth -= damage;
+            }
         }
 
         if (currentHealth <= 0)
@@ -133,6 +143,16 @@ public class PlayerBehaviour : MonoBehaviour
         CalculateLevel();
         levelCounterText.text = level.ToString();
         xpBar.value = xpAmount;
+    }
+
+    public GameObject GetShieldObject()
+    {
+        return shield;
+    }
+
+    public void SetShieldEnabled(bool currentValue)
+    {
+        shieldEnabled = currentValue;
     }
 
     private void CalculateLevel()

@@ -178,8 +178,10 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2268414710098425112}
   dropChanceOfHealItem: 15
   dropChanceOfAnvilItem: 10
+  dropChanceOfShieldItem: 10
   healPotion: {fileID: 8536557143647732567, guid: 4a6d6cdeedfaca4448ec54c600f14529, type: 3}
   anvilDrop: {fileID: 8342683303646754505, guid: 9a87c7771c8ee804b871b68228b3211c, type: 3}
+  shieldItem: {fileID: 7445100632790729470, guid: 4b05eb21ea2de6f48a3647c12eaa70c1, type: 3}
   throwableObject: {fileID: 0}
   throwableObjectSpeed: 0
   cooldownToShoot: 0

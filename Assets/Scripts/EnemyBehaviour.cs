@@ -11,8 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform player;
     [SerializeField] private Vector2 target;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private float dropChanceOfHealItem, dropChanceOfAnvilItem;
-    [SerializeField] private GameObject healPotion, anvilDrop;
+    [SerializeField] private float dropChanceOfHealItem, dropChanceOfAnvilItem, dropChanceOfShieldItem;
+    [SerializeField] private GameObject healPotion, anvilDrop, shieldItem;
     [SerializeField] private GameObject throwableObject;
     [SerializeField] private float throwableObjectSpeed, cooldownToShoot;
     [SerializeField] private bool isFireSlime, isBrute, isSlime, isDarkTablet, isImp;
@@ -93,6 +93,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             DropHealItem();
             DropAnvilDropItem();
+            DropShieldItem();
             Instantiate(xp, transform.position, quaternion.identity);
             var contains = LevelManager.instance.enemies.Contains(this);
             if (contains)
@@ -125,6 +126,15 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    private void DropShieldItem()
+    {
+        var randomValue = Random.Range(1, 100);
+        if (dropChanceOfShieldItem > randomValue)
+        {
+            Instantiate(shieldItem, transform.position, quaternion.identity);
+        }
+    }
+    
     private void Fire()
     {
         Vector2 direction = player.position - transform.position;
