@@ -21,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject xp;
     [SerializeField] private GameObject despawner;
     [SerializeField] private float debuffLevel;
+    private bool itemDropped = false;
     private bool findNewTarget = true;
     [SerializeField] private float coolDownForSlowDebuff, coolDownForSlowDebuffReset;
 
@@ -56,7 +57,7 @@ public class EnemyBehaviour : MonoBehaviour
             else
             {
                 movingCounter = movingCounterReset;
-                var newVector = new Vector2(Random.Range(-17, 17), Random.Range(9, -9));
+                var newVector = new Vector2(Random.Range(-30, 30), Random.Range(15, -15));
                 target = newVector;
             }
 
@@ -111,27 +112,30 @@ public class EnemyBehaviour : MonoBehaviour
     private void DropHealItem()
     {
         var randomValue = Random.Range(1, 100);
-        if (dropChanceOfHealItem > randomValue)
+        if (dropChanceOfHealItem > randomValue && itemDropped == false)
         {
             Instantiate(healPotion, transform.position, quaternion.identity);
+            itemDropped = true;
         }
     }
 
     private void DropAnvilDropItem()
     {
         var randomValue = Random.Range(1, 100);
-        if (dropChanceOfAnvilItem > randomValue)
+        if (dropChanceOfAnvilItem > randomValue && itemDropped == false)
         {
             Instantiate(anvilDrop, transform.position, quaternion.identity);
+            itemDropped = true;
         }
     }
 
     private void DropShieldItem()
     {
         var randomValue = Random.Range(1, 100);
-        if (dropChanceOfShieldItem > randomValue)
+        if (dropChanceOfShieldItem > randomValue && itemDropped == false)
         {
             Instantiate(shieldItem, transform.position, quaternion.identity);
+            itemDropped = true;
         }
     }
     

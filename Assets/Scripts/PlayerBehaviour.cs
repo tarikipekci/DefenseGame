@@ -155,6 +155,11 @@ public class PlayerBehaviour : MonoBehaviour
         shieldEnabled = currentValue;
     }
 
+    public bool GetShieldEnabled()
+    {
+        return shieldEnabled;
+    }
+
     private void CalculateLevel()
     {
         if (xpAmount >= 10f)

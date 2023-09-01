@@ -4,7 +4,7 @@ public class ShieldItemBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && PlayerBehaviour.instance.GetShieldEnabled() == false)
         {
             PlayerBehaviour.instance.SetShieldEnabled(true);
             PlayerBehaviour.instance.GetShieldObject().SetActive(true);

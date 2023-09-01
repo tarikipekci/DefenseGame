@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,12 +12,17 @@ internal struct Waves
 {
     [SerializeField] public int waveCounter;
 
+    [SerializeField] public int countOfGroupElements;
+
+    [SerializeField] public float groupSpawnDuration, resetDuration;
+
     [SerializeField] public int amountOfGreenSlime,
         amountOfFireSlime,
         amountOfBrute,
         amountOfDarkTablet,
         amountOfImp,
         amountOfBug;
+
 
     public int CountEnemies()
     {
@@ -43,8 +49,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float anvilDropSpeed, anvilShadowAnimationDuration = 1f;
     [SerializeField] private Vector2 target;
     private static bool anvilDropped;
-
-
+    private int groupCounter;
+    private bool groupTime;
+    
     private void Awake()
     {
         instance = this;
@@ -66,11 +73,11 @@ public class LevelManager : MonoBehaviour
     public IEnumerator DropAnvil()
     {
         GameObject newAnvil;
-        var dropLocation = new Vector2(Random.Range(-17, 17), Random.Range(9, -9));
+        var dropLocation = new Vector2(Random.Range(-30, 30), Random.Range(15, -15));
         var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
         anvilShadowCopy = newAnvilShadow;
         yield return new WaitForSeconds(anvilShadowAnimationDuration);
-        newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 12), Quaternion.identity);
+        newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 20), Quaternion.identity);
         copiedAnvil = newAnvil;
         target = dropLocation;
         anvilDropped = true;
@@ -84,9 +91,10 @@ public class LevelManager : MonoBehaviour
         {
             anvilDropped = false;
             Destroy(anvilShadowCopy);
-            var anvilTraceCopy = Instantiate(anvilTrace, new Vector3(dropLocation.x, dropLocation.y - 1f), Quaternion.identity);
+            var anvilTraceCopy = Instantiate(anvilTrace, new Vector3(dropLocation.x, dropLocation.y - 1f),
+                Quaternion.identity);
             Destroy(copiedAnvil, 0.5f);
-            Destroy(anvilTraceCopy,7f);
+            Destroy(anvilTraceCopy, 7f);
         }
     }
 
@@ -94,11 +102,23 @@ public class LevelManager : MonoBehaviour
     {
         return anvilDropped;
     }
-    
+
     private IEnumerator RandomSpawn(int waveCounter)
     {
-        var randomLocation = new Vector3(Random.Range(-17, 17), Random.Range(9, -9), 0f);
-        //Vector3[] randomLocations;
+        if (groupTime)
+        {
+            groupCounter++;
+            if (groupCounter == waves[waveCounter].countOfGroupElements)
+            {
+                groupTime = false;
+                cooldownToSpawn = cooldownToSpawnReset;
+                groupCounter = 0;
+                waves[waveCounter].groupSpawnDuration = waves[waveCounter].resetDuration;
+            }
+        }
+
+        var randomLocation = new Vector3(Random.Range(-30, 30), Random.Range(15, -15), 0f);
+
         if (currentEnemyCount > 1)
         {
             var newSpawner = Instantiate(spawner, randomLocation, Quaternion.identity);
@@ -106,7 +126,6 @@ public class LevelManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
-
 
         if (waves[waveCounter].amountOfGreenSlime > 0)
         {
@@ -186,6 +205,16 @@ public class LevelManager : MonoBehaviour
 
     private void CanSpawn()
     {
+        if (waves[wave].groupSpawnDuration > 0 && groupTime == false)
+        {
+            waves[wave].groupSpawnDuration -= Time.deltaTime;
+        }
+        else
+        {
+            cooldownToSpawn = 0f;
+            groupTime = true;
+        }
+        
         if (cooldownToSpawn > 0)
         {
             cooldownToSpawn -= Time.deltaTime;
