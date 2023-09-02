@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource[] musicSources, soundEffects;
-
+    
     public void SetMusicSoundLevel(float soundLevel)
     {
         foreach (var music in musicSources)

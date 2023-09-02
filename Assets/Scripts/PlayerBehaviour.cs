@@ -46,6 +46,8 @@ public class PlayerBehaviour : MonoBehaviour
             WeaponBehaviour.instance.arrow.GetComponent<SpriteRenderer>().sprite = arrow;
             amblem.sprite = archerAmblem;
             bar.sprite = archerBar;
+            LevelManager.instance.SetBaseStats(7f,3f, 5f,9f);
+            LevelManager.instance.UpdateStats();
         }
         else if (ClassBehaviour.isMage)
         {
@@ -53,12 +55,16 @@ public class PlayerBehaviour : MonoBehaviour
             WeaponBehaviour.instance.arrow.GetComponent<SpriteRenderer>().sprite = magicBall;
             amblem.sprite = mageAmblem;
             bar.sprite = mageBar;
+            LevelManager.instance.SetBaseStats(5f,5f, 3f,12f);
+            LevelManager.instance.UpdateStats();
         }
         else if (ClassBehaviour.isKnight)
         {
             _animator.SetTrigger(Knight);
             amblem.sprite = knightAmblem;
             bar.sprite = knightBar;
+            LevelManager.instance.SetBaseStats(15f,7f, 3f,7f);
+            LevelManager.instance.UpdateStats();
         }
     }
 

@@ -126,7 +126,7 @@ MonoBehaviour:
   movingCounter: 0
   movingCounterReset: 0
   xp: {fileID: 8082384930095241744, guid: 47f58a72fd85dfc4ebe4358bbba17778, type: 3}
-  despawner: {fileID: 3590588094465698512, guid: 8a87d9c5b596b3a4495984b5cce9b9d7, type: 3}
+  despawner: {fileID: 2992458053253861328, guid: e3860a9a649dc734a8f112a2da6eaa23, type: 3}
   debuffLevel: 0
   coolDownForSlowDebuff: 0
   coolDownForSlowDebuffReset: 0

@@ -8,19 +8,19 @@ public class SettingsBehaviour : MonoBehaviour
     [SerializeField] private GameObject settings;
     [SerializeField] private AudioManager audioManager;
     private float hundred = 100f;
-    private float defaultValue = 0.5f;
-
+    
     private void Awake()
     {
-        generalSoundSlider.value = defaultValue;
-        ambientSoundSlider.value = defaultValue;
-        musicSoundSlider.value = defaultValue;
+        generalSoundSlider.value = AudioListener.volume;
+        musicSoundSlider.value = audioManager.GetMusicSoundLevel();
+        ambientSoundSlider.value = audioManager.GetAmbientSoundLevel();
     }
 
     public void GeneralSoundSlider(float volume)
     {
-        volume = generalSoundSlider.value;
-        generalSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
+        AudioListener.volume = generalSoundSlider.value;
+        generalSoundSlider.value = AudioListener.volume;
+        generalSoundLevel.text = Mathf.FloorToInt(AudioListener.volume * hundred).ToString();
     }
 
     public void AmbientSoundSlider(float volume)
@@ -28,7 +28,6 @@ public class SettingsBehaviour : MonoBehaviour
         volume = ambientSoundSlider.value;
         ambientSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
         audioManager.SetAmbientSoundLevel(volume);
-        generalSoundSlider.value = (audioManager.GetAmbientSoundLevel() + audioManager.GetMusicSoundLevel()) / 2f;
     }
 
     public void MusicSoundSlider(float volume)
@@ -36,7 +35,6 @@ public class SettingsBehaviour : MonoBehaviour
         volume = musicSoundSlider.value;
         musicSoundLevel.text = Mathf.FloorToInt(volume * hundred).ToString();
         audioManager.SetMusicSoundLevel(volume);
-        generalSoundSlider.value = (audioManager.GetAmbientSoundLevel() + audioManager.GetMusicSoundLevel()) / 2f;
     }
 
     public void OpenSettings()

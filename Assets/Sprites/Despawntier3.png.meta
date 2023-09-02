@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b50777c0fbb755d44ae59834adbf90d3
+guid: 646d2c0fae869354bbde201c8dcac657
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -125,27 +125,15 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Despawn_0
+      name: Despawntier3_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 147
+        x: 3
+        y: 116
         width: 27
         height: 6
       alignment: 0
@@ -155,18 +143,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b769ec3f9027f649b0733fbeba9fbce
-      internalID: -1256957436
+      spriteID: fe019739d15e290468a9c25e77f2ddb2
+      internalID: -455991337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_1
+      name: Despawntier3_1
       rect:
         serializedVersion: 2
-        x: 120
-        y: 147
+        x: 2
+        y: 93
         width: 27
         height: 6
       alignment: 0
@@ -176,18 +164,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0c71a416e03874cb7e95dbbc75f7c0
-      internalID: -1456303974
+      spriteID: f633b4eb98b79a64794ec3f86d63d3f4
+      internalID: 1657694183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_2
+      name: Despawntier3_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 101
+        x: 4
+        y: 69
         width: 27
         height: 6
       alignment: 0
@@ -197,18 +185,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0fafce6a2936bc4e9e5b3136c85fe01
-      internalID: 2034730889
+      spriteID: 6f00daa672779fb4bb72a8eb03d4ea98
+      internalID: -408774506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_3
+      name: Despawntier3_3
       rect:
         serializedVersion: 2
-        x: 9
-        y: 47
+        x: 3
+        y: 46
         width: 27
         height: 6
       alignment: 0
@@ -218,18 +206,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 571e6465a00dff24dbd89d98d2cfa413
-      internalID: -1849083849
+      spriteID: 978161c1016dc514d8fc0f0e0570d0a6
+      internalID: 926850140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_4
+      name: Despawntier3_4
       rect:
         serializedVersion: 2
-        x: 122
-        y: 111
+        x: 3
+        y: 20
         width: 27
         height: 6
       alignment: 0
@@ -239,18 +227,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dac49af0f7366a4881c2728dbab06d2
-      internalID: -330152246
+      spriteID: 052c7665e3e50a849883113507959c77
+      internalID: -1861886557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_5
+      name: Despawntier3_5
       rect:
         serializedVersion: 2
-        x: 123
-        y: 67
+        x: 71
+        y: 110
         width: 27
         height: 6
       alignment: 0
@@ -260,18 +248,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6f4be93b439f245819b6b119f2a0bf
-      internalID: 2031988802
+      spriteID: 013d6d11169cff44a9ee312f592b208e
+      internalID: -1344885074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Despawn_6
+      name: Despawntier3_6
       rect:
         serializedVersion: 2
-        x: 124
-        y: 26
+        x: 73
+        y: 81
         width: 27
         height: 6
       alignment: 0
@@ -281,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def54699524710f46ae7765933439cf8
-      internalID: 1979175521
+      spriteID: 2e1c548d4bb171e48be433d87d4774e4
+      internalID: -878323551
       vertices: []
       indices: 
       edges: []
@@ -298,13 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Despawn_0: -1256957436
-      Despawn_1: -1456303974
-      Despawn_2: 2034730889
-      Despawn_3: -1849083849
-      Despawn_4: -330152246
-      Despawn_5: 2031988802
-      Despawn_6: 1979175521
+      Despawntier3_0: -455991337
+      Despawntier3_1: 1657694183
+      Despawntier3_2: -408774506
+      Despawntier3_3: 926850140
+      Despawntier3_4: -1861886557
+      Despawntier3_5: -1344885074
+      Despawntier3_6: -878323551
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

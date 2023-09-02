@@ -43,7 +43,13 @@ public class LevelManager : MonoBehaviour
     public List<EnemyBehaviour> enemies;
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
-    public int vitalityLevel = 1, damageLevel = 1, attackSpeedLevel = 1, movementSpeedLevel = 1;
+    [HideInInspector] public float vitalityLevel = 1f, damageLevel = 1f, attackSpeedLevel = 1f, movementSpeedLevel = 1f;
+
+    [SerializeField] private float vitalityIncreaseAmount,
+        damageIncreaseAmount,
+        attackSpeedIncreaseAmount,
+        movementSpeedIncreaseAmount;
+
     [SerializeField] private Text enemyCounterText;
     [SerializeField] private GameObject anvilShadow, anvil, copiedAnvil, anvilTrace, anvilShadowCopy;
     [SerializeField] private float anvilDropSpeed, anvilShadowAnimationDuration = 1f;
@@ -51,7 +57,7 @@ public class LevelManager : MonoBehaviour
     private static bool anvilDropped;
     private int groupCounter;
     private bool groupTime;
-    
+
     private void Awake()
     {
         instance = this;
@@ -198,7 +204,6 @@ public class LevelManager : MonoBehaviour
                                (attackSpeedLevel + 1);
             movementSpeed.text = "Current Speed: " + movementSpeedLevel + "\nNext Level: " +
                                  (movementSpeedLevel + 1);
-            currentPoint.text = PlayerBehaviour.instance.level + " points left!";
             Time.timeScale = 0f;
         }
     }
@@ -214,7 +219,7 @@ public class LevelManager : MonoBehaviour
             cooldownToSpawn = 0f;
             groupTime = true;
         }
-        
+
         if (cooldownToSpawn > 0)
         {
             cooldownToSpawn -= Time.deltaTime;
@@ -231,6 +236,24 @@ public class LevelManager : MonoBehaviour
         float minutes = Mathf.FloorToInt(Time.timeSinceLevelLoad / 60);
         float seconds = Mathf.FloorToInt(Time.timeSinceLevelLoad % 60);
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+    }
+
+    public void SetBaseStats(float vitality, float damage, float attackSpeed, float moveSpeed)
+    {
+        vitalityLevel = vitality;
+        damageLevel = damage;
+        attackSpeedLevel = attackSpeed;
+        movementSpeedLevel = moveSpeed;
+    }
+
+    public void UpdateStats()
+    {
+        PlayerBehaviour.instance.maxHealth = (int)(vitalityLevel * vitalityIncreaseAmount);
+        PlayerBehaviour.instance.currentHealth = PlayerBehaviour.instance.maxHealth;
+        PlayerBehaviour.instance.healthBar.maxValue = PlayerBehaviour.instance.maxHealth;
+        WeaponBehaviour.instance.damage = damageLevel * damageIncreaseAmount;
+        WeaponBehaviour.instance.attackSpeed = attackSpeedLevel * attackSpeedIncreaseAmount;
+        PlayerBehaviour.instance.moveSpeed = movementSpeedLevel * movementSpeedIncreaseAmount;
     }
 
     public void TryAgain()
