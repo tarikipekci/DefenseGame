@@ -155,8 +155,8 @@ MonoBehaviour:
   damage: 1
   target: {x: 0, y: 0}
   _spriteRenderer: {fileID: 0}
-  dropChanceOfHealItem: 10
-  dropChanceOfAnvilItem: 10
+  dropChanceOfHealItem: 8
+  dropChanceOfAnvilItem: 8
   dropChanceOfShieldItem: 5
   healPotion: {fileID: 8536557143647732567, guid: 4a6d6cdeedfaca4448ec54c600f14529, type: 3}
   anvilDrop: {fileID: 8342683303646754505, guid: 9a87c7771c8ee804b871b68228b3211c, type: 3}

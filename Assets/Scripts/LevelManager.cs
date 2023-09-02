@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,7 +12,7 @@ internal struct Waves
     [SerializeField] public int waveCounter;
 
     [SerializeField] public int countOfGroupElements;
-
+    
     [SerializeField] public float groupSpawnDuration, resetDuration;
 
     [SerializeField] public int amountOfGreenSlime,
@@ -125,7 +124,7 @@ public class LevelManager : MonoBehaviour
 
         var randomLocation = new Vector3(Random.Range(-30, 30), Random.Range(15, -15), 0f);
 
-        if (currentEnemyCount > 1)
+        if (waves[waveCounter].CountEnemies() > 0f)
         {
             var newSpawner = Instantiate(spawner, randomLocation, Quaternion.identity);
             Destroy(newSpawner, 1f);
