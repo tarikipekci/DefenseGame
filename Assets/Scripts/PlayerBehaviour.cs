@@ -126,6 +126,7 @@ public class PlayerBehaviour : MonoBehaviour
             UpdateHealthUI();
             gameObject.SetActive(false);
             LevelManager.instance.deathScreen.gameObject.SetActive(true);
+            UIBehaviour.instance.GetPauseButton().SetActive(false);
             Time.timeScale = 0f;
         }
     }

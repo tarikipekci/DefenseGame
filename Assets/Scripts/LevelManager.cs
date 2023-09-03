@@ -12,7 +12,7 @@ internal struct Waves
     [SerializeField] public int waveCounter;
 
     [SerializeField] public int countOfGroupElements;
-    
+
     [SerializeField] public float groupSpawnDuration, resetDuration;
 
     [SerializeField] public int amountOfGreenSlime,
@@ -259,5 +259,6 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level");
         Time.timeScale = 1f;
+        UIBehaviour.instance.GetPauseButton().SetActive(true);
     }
 }

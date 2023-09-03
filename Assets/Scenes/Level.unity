@@ -5611,7 +5611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 34367770}
-  settings: {fileID: 0}
+  settings: {fileID: 872196353}
+  pauseButton: {fileID: 507519869}
   pauseMenuAnimator: {fileID: 507519874}
   isMenuOpened: 0
 --- !u!114 &1957577199
