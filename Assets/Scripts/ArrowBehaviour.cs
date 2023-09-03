@@ -7,11 +7,11 @@ public class ArrowBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealthOfEnemy(WeaponBehaviour.instance.damage);
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
         else if (other.gameObject.CompareTag("Edge"))
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -122,7 +122,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        var randomLocation = new Vector3(Random.Range(-30, 30), Random.Range(15, -15), 0f);
+        var randomLocation = new Vector3(Random.Range(-29, 29), Random.Range(14, -14), 0f);
 
         if (waves[waveCounter].CountEnemies() > 0f)
         {

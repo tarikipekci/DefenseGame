@@ -5,6 +5,7 @@ public class StatBehaviour : MonoBehaviour
     [SerializeField] private Animator _animatorV, _animatorD, _animatorA, _animatorM;
     private static readonly int Pressed = Animator.StringToHash("pressed");
     [SerializeField] private GameObject panel, continueButton;
+    [SerializeField] private GameObject vitalityButton, damageButton, attackSpeedButton, movementSpeedButton;
     private bool upgraded;
 
     public void IncreaseVitality()
@@ -17,6 +18,11 @@ public class StatBehaviour : MonoBehaviour
             _animatorV.SetTrigger(Pressed);
             LevelManager.instance.vitalityLevel++;
             upgraded = true;
+            LevelManager.instance.vitality.color = Color.green;
+            vitalityButton.SetActive(false);
+            damageButton.SetActive(false);
+            attackSpeedButton.SetActive(false);
+            movementSpeedButton.SetActive(false);
             UpdateSkillPoints();
         }
     }
@@ -29,6 +35,11 @@ public class StatBehaviour : MonoBehaviour
             _animatorM.SetTrigger(Pressed);
             LevelManager.instance.movementSpeedLevel++;
             upgraded = true;
+            LevelManager.instance.movementSpeed.color = Color.green;
+            vitalityButton.SetActive(false);
+            damageButton.SetActive(false);
+            attackSpeedButton.SetActive(false);
+            movementSpeedButton.SetActive(false);
             UpdateSkillPoints();
         }
     }
@@ -41,6 +52,11 @@ public class StatBehaviour : MonoBehaviour
             _animatorD.SetTrigger(Pressed);
             LevelManager.instance.damageLevel++;
             upgraded = true;
+            LevelManager.instance.damage.color = Color.green;
+            vitalityButton.SetActive(false);
+            damageButton.SetActive(false);
+            attackSpeedButton.SetActive(false);
+            movementSpeedButton.SetActive(false);
             UpdateSkillPoints();
         }
     }
@@ -53,6 +69,11 @@ public class StatBehaviour : MonoBehaviour
             _animatorA.SetTrigger(Pressed);
             LevelManager.instance.attackSpeedLevel++;
             upgraded = true;
+            LevelManager.instance.attackSpeed.color = Color.green;
+            vitalityButton.SetActive(false);
+            damageButton.SetActive(false);
+            attackSpeedButton.SetActive(false);
+            movementSpeedButton.SetActive(false);
             UpdateSkillPoints();
         }
     }
@@ -62,6 +83,14 @@ public class StatBehaviour : MonoBehaviour
         upgraded = false;
         panel.SetActive(false);
         continueButton.SetActive(false);
+        vitalityButton.SetActive(true);
+        damageButton.SetActive(true);
+        attackSpeedButton.SetActive(true);
+        movementSpeedButton.SetActive(true);
+        LevelManager.instance.vitality.color = Color.white;
+        LevelManager.instance.damage.color = Color.white;
+        LevelManager.instance.attackSpeed.color = Color.white;
+        LevelManager.instance.movementSpeed.color = Color.white;
         Time.timeScale = 1f;
     }
 

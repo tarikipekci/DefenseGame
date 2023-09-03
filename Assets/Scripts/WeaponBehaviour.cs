@@ -48,7 +48,13 @@ public class WeaponBehaviour : MonoBehaviour
     private void Fire()
     {
         Vector2 direction = target.transform.position - transform.position;
-        var tmpArrow = Instantiate(arrow, transform.position, transform.rotation);
+        //var tmpArrow = Instantiate(arrow, transform.position, transform.rotation);
+        GameObject tmpArrow = ObjectPooling.instance.GetPooledObject();
+        if (tmpArrow != null)
+        {
+            tmpArrow.transform.position = transform.position;
+            tmpArrow.SetActive(true);
+        }
         tmpArrow.transform.right = direction;
         tmpArrow.GetComponent<Rigidbody2D>().velocity = direction.normalized * speedArrow;
     }

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 5
-  moveSpeed: 5
+  moveSpeed: 4
   moveSpeedReset: 0
   debuffSpeed: 0
   damage: 2
@@ -137,7 +137,7 @@ MonoBehaviour:
   shieldItem: {fileID: 7445100632790729470, guid: 4b05eb21ea2de6f48a3647c12eaa70c1, type: 3}
   throwableObject: {fileID: 4681015762338913958, guid: a373a7df052fb0a4eb477b8d357441d2, type: 3}
   throwableObjectSpeed: 8
-  cooldownToShoot: 2
+  cooldownToShoot: 3
   isFireSlime: 1
   isBrute: 0
   isSlime: 0

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
-  moveSpeed: 4
+  moveSpeed: 3.5
   moveSpeedReset: 0
   debuffSpeed: 0
   damage: 1
