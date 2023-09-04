@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,6 +45,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public Text vitality, damage, attackSpeed, movementSpeed, currentPoint;
     [HideInInspector] public float vitalityLevel = 1f, damageLevel = 1f, attackSpeedLevel = 1f, movementSpeedLevel = 1f;
 
+    [SerializeField] private TextMeshProUGUI waveCounterText;
+
     [SerializeField] private float vitalityIncreaseAmount,
         damageIncreaseAmount,
         attackSpeedIncreaseAmount,
@@ -63,6 +66,7 @@ public class LevelManager : MonoBehaviour
         cooldownToSpawnReset = cooldownToSpawn;
         currentEnemyCount = waves[wave].CountEnemies();
         enemyCounterText.text = currentEnemyCount.ToString();
+        waveCounterText.text = "Wave " + waves[wave].waveCounter;
     }
 
     private void Update()
@@ -78,14 +82,21 @@ public class LevelManager : MonoBehaviour
     public IEnumerator DropAnvil()
     {
         GameObject newAnvil;
-        var dropLocation = new Vector2(Random.Range(-30, 30), Random.Range(15, -15));
-        var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
-        anvilShadowCopy = newAnvilShadow;
-        yield return new WaitForSeconds(anvilShadowAnimationDuration);
-        newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 20), Quaternion.identity);
-        copiedAnvil = newAnvil;
-        target = dropLocation;
-        anvilDropped = true;
+        var dropLocation = new Vector2(Random.Range(-51, 51), Random.Range(28, -28));
+        if (Mathf.Abs(Vector2.Distance(PlayerBehaviour.instance.transform.position, dropLocation)) < 10f)
+        {
+            var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
+            anvilShadowCopy = newAnvilShadow;
+            yield return new WaitForSeconds(anvilShadowAnimationDuration);
+            newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 35), Quaternion.identity);
+            copiedAnvil = newAnvil;
+            target = dropLocation;
+            anvilDropped = true;
+        }
+        else
+        {
+            StartCoroutine(DropAnvil());
+        }
     }
 
     private void SpawnAnvil(Vector2 dropLocation)
@@ -122,7 +133,7 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        var randomLocation = new Vector3(Random.Range(-29, 29), Random.Range(14, -14), 0f);
+        var randomLocation = new Vector3(Random.Range(-50, 50), Random.Range(27, -27), 0f);
 
         if (waves[waveCounter].CountEnemies() > 0f)
         {
@@ -179,6 +190,7 @@ public class LevelManager : MonoBehaviour
         {
             wave++;
             currentEnemyCount = waves[wave].CountEnemies();
+            waveCounterText.text = "Wave " + waves[wave].waveCounter;
         }
 
         enemyCounterText.text = currentEnemyCount.ToString();
