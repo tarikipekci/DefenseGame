@@ -21,7 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private GameObject xp;
     [SerializeField] private GameObject despawner;
     [SerializeField] private float debuffLevel;
-    private bool itemDropped = false;
+    private bool itemDropped;
     private bool findNewTarget = true;
     [SerializeField] private float coolDownForSlowDebuff, coolDownForSlowDebuffReset;
 
@@ -40,7 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
         coolDownForSlowDebuffReset = coolDownForSlowDebuff;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isBrute || isSlime)
         {
@@ -105,7 +105,16 @@ public class EnemyBehaviour : MonoBehaviour
 
             var newDespawner = Instantiate(despawner, transform.position, quaternion.identity);
             Destroy(newDespawner, 0.5f);
-            Destroy(gameObject);
+            if (isSlime)
+            {
+                currentHealth = maxHealth;
+                _spriteRenderer.color = Color.white;
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -138,7 +147,7 @@ public class EnemyBehaviour : MonoBehaviour
             itemDropped = true;
         }
     }
-    
+
     private void Fire()
     {
         Vector2 direction = player.position - transform.position;

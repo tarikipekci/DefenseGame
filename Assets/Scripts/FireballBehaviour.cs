@@ -11,5 +11,9 @@ public class FireballBehaviour : MonoBehaviour
             PlayerBehaviour.instance.DecreaseHealthOfPlayer(damage);
             Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("Edge"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

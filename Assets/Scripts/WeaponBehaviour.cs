@@ -7,7 +7,6 @@ public class WeaponBehaviour : MonoBehaviour
     private GameObject target;
     [SerializeField] private float shootingDistance;
     [SerializeField] public float damage;
-    public GameObject arrow;
     [SerializeField] private float speedArrow;
     [SerializeField] public float cooldownToShoot;
     [SerializeField] public float attackSpeed;
@@ -49,7 +48,7 @@ public class WeaponBehaviour : MonoBehaviour
     {
         Vector2 direction = target.transform.position - transform.position;
         //var tmpArrow = Instantiate(arrow, transform.position, transform.rotation);
-        GameObject tmpArrow = ObjectPooling.instance.GetPooledObject();
+        var tmpArrow = ObjectPooling.instance.GetPooledObject();
         if (tmpArrow != null)
         {
             tmpArrow.transform.position = transform.position;

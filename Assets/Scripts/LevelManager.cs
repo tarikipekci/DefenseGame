@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI waveCounterText;
 
-    [SerializeField] private float vitalityIncreaseAmount,
+    [SerializeField] public float vitalityIncreaseAmount,
         damageIncreaseAmount,
         attackSpeedIncreaseAmount,
         movementSpeedIncreaseAmount;
@@ -145,7 +145,14 @@ public class LevelManager : MonoBehaviour
 
         if (waves[waveCounter].amountOfGreenSlime > 0)
         {
-            var newGreenSlime = Instantiate(greenSlime, randomLocation, Quaternion.identity);
+            //var newGreenSlime = Instantiate(greenSlime, randomLocation, Quaternion.identity);
+            var newGreenSlime = ObjectPooling.instance.GetPooledGreenSlimes();
+            if (newGreenSlime != null)
+            {
+                newGreenSlime.transform.position = randomLocation;
+                newGreenSlime.SetActive(true);
+            }
+
             waves[waveCounter].amountOfGreenSlime--;
             enemies.Add(newGreenSlime.GetComponent<EnemyBehaviour>());
         }
@@ -207,6 +214,7 @@ public class LevelManager : MonoBehaviour
         if (enemies.Count == 0)
         {
             upgradePanel.SetActive(true);
+            UIBehaviour.instance.GetPauseButton().SetActive(false);
             vitality.text = "Current Vitality: " + vitalityLevel + "\nNext Level: " +
                             (vitalityLevel + 1);
             damage.text = "Current Damage: " + damageLevel + "\nNext Level: " +

@@ -18,6 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private FloatingJoystick _joystick;
     private bool shieldEnabled;
     [SerializeField] private GameObject shield;
+    public SpriteRenderer weapon;
 
     private static readonly int Archer = Animator.StringToHash("archer");
     private static readonly int Mage = Animator.StringToHash("mage");
@@ -36,39 +37,44 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
+        UpdateClass();
+    }
 
+    private void UpdateClass()
+    {
         if (ClassBehaviour.isArcher)
         {
             _animator.SetTrigger(Archer);
-            WeaponBehaviour.instance.arrow.GetComponent<SpriteRenderer>().sprite = arrow;
             amblem.sprite = archerAmblem;
             bar.sprite = archerBar;
-            LevelManager.instance.SetBaseStats(7f,3f, 5f,9f);
+            LevelManager.instance.SetBaseStats(7f, 3f, 5f, 9f);
             LevelManager.instance.UpdateStats();
+            ObjectPooling.instance.UpdateWeaponSprite(arrow);
         }
         else if (ClassBehaviour.isMage)
         {
             _animator.SetTrigger(Mage);
-            WeaponBehaviour.instance.arrow.GetComponent<SpriteRenderer>().sprite = magicBall;
             amblem.sprite = mageAmblem;
             bar.sprite = mageBar;
-            LevelManager.instance.SetBaseStats(5f,5f, 3f,12f);
+            LevelManager.instance.SetBaseStats(5f, 5f, 3f, 12f);
             LevelManager.instance.UpdateStats();
+            ObjectPooling.instance.UpdateWeaponSprite(magicBall);
         }
         else if (ClassBehaviour.isKnight)
         {
             _animator.SetTrigger(Knight);
             amblem.sprite = knightAmblem;
             bar.sprite = knightBar;
-            LevelManager.instance.SetBaseStats(15f,7f, 3f,7f);
+            LevelManager.instance.SetBaseStats(15f, 7f, 3f, 7f);
             LevelManager.instance.UpdateStats();
+            ObjectPooling.instance.UpdateWeaponSprite(arrow);
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Walk();
         UpdateHealthUI();

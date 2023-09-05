@@ -12,7 +12,7 @@ public class StatBehaviour : MonoBehaviour
     {
         if (upgraded == false)
         {
-            PlayerBehaviour.instance.maxHealth += 1;
+            PlayerBehaviour.instance.maxHealth += (int)LevelManager.instance.vitalityIncreaseAmount;
             PlayerBehaviour.instance.healthBar.maxValue = PlayerBehaviour.instance.maxHealth;
             PlayerBehaviour.instance.currentHealth = PlayerBehaviour.instance.maxHealth;
             _animatorV.SetTrigger(Pressed);
@@ -31,7 +31,7 @@ public class StatBehaviour : MonoBehaviour
     {
         if (upgraded == false)
         {
-            PlayerBehaviour.instance.moveSpeed += 1;
+            PlayerBehaviour.instance.moveSpeed += LevelManager.instance.movementSpeedIncreaseAmount;
             _animatorM.SetTrigger(Pressed);
             LevelManager.instance.movementSpeedLevel++;
             upgraded = true;
@@ -48,7 +48,7 @@ public class StatBehaviour : MonoBehaviour
     {
         if (upgraded == false)
         {
-            WeaponBehaviour.instance.damage += 0.25f;
+            WeaponBehaviour.instance.damage += LevelManager.instance.damageIncreaseAmount;
             _animatorD.SetTrigger(Pressed);
             LevelManager.instance.damageLevel++;
             upgraded = true;
@@ -65,7 +65,7 @@ public class StatBehaviour : MonoBehaviour
     {
         if (upgraded == false)
         {
-            WeaponBehaviour.instance.attackSpeed += 0.01f;
+            WeaponBehaviour.instance.attackSpeed += LevelManager.instance.attackSpeedIncreaseAmount;
             _animatorA.SetTrigger(Pressed);
             LevelManager.instance.attackSpeedLevel++;
             upgraded = true;
@@ -91,6 +91,7 @@ public class StatBehaviour : MonoBehaviour
         LevelManager.instance.damage.color = Color.white;
         LevelManager.instance.attackSpeed.color = Color.white;
         LevelManager.instance.movementSpeed.color = Color.white;
+        UIBehaviour.instance.GetPauseButton().SetActive(true);
         Time.timeScale = 1f;
     }
 
