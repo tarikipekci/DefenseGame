@@ -8,6 +8,7 @@ public class AnvilDropBehaviour : MonoBehaviour
         {
             if (LevelManager.instance.GetAnvilDropped() == false)
             {
+                LevelManager.instance.SetAnvilDropped(true);
                 LevelManager.instance.StartCoroutine(LevelManager.instance.DropAnvil());
                 Destroy(gameObject);
             }

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 [Serializable]
@@ -32,7 +33,7 @@ internal struct Waves
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject greenSlime, brute, fireSlime, darkTablet, imp, bug;
+    [SerializeField] private GameObject brute, fireSlime, darkTablet, imp, bug;
     [SerializeField] private Text timerText;
     [SerializeField] public GameObject deathScreen;
     [SerializeField] private float cooldownToSpawn, cooldownToSpawnReset;
@@ -53,12 +54,13 @@ public class LevelManager : MonoBehaviour
         movementSpeedIncreaseAmount;
 
     [SerializeField] private Text enemyCounterText;
-    [SerializeField] private GameObject anvilShadow, anvil, copiedAnvil, anvilTrace, anvilShadowCopy;
+    [SerializeField] private GameObject anvilShadow, anvil, anvilTrace;
     [SerializeField] private float anvilDropSpeed, anvilShadowAnimationDuration = 1f;
-    [SerializeField] private Vector2 target;
-    private static bool anvilDropped;
+    private bool anvilDropped;
     private int groupCounter;
     private bool groupTime;
+    private Vector2 dropLocation;
+    private GameObject newAnvil, newShadow;
 
     private void Awake()
     {
@@ -69,29 +71,15 @@ public class LevelManager : MonoBehaviour
         waveCounterText.text = "Wave " + waves[wave].waveCounter;
     }
 
-    private void Update()
-    {
-        DisplayTimeCounter();
-        CanSpawn();
-        if (anvilDropped)
-        {
-            SpawnAnvil(target);
-        }
-    }
-
     public IEnumerator DropAnvil()
     {
-        GameObject newAnvil;
         var dropLocation = new Vector2(Random.Range(-51, 51), Random.Range(28, -28));
         if (Mathf.Abs(Vector2.Distance(PlayerBehaviour.instance.transform.position, dropLocation)) < 10f)
         {
             var newAnvilShadow = Instantiate(anvilShadow, dropLocation, Quaternion.identity);
-            anvilShadowCopy = newAnvilShadow;
             yield return new WaitForSeconds(anvilShadowAnimationDuration);
-            newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 35), Quaternion.identity);
-            copiedAnvil = newAnvil;
-            target = dropLocation;
-            anvilDropped = true;
+            var newAnvil = Instantiate(anvil, new Vector2(dropLocation.x, 45), Quaternion.identity);
+            SpawnAnvil(dropLocation, newAnvil, newAnvilShadow);
         }
         else
         {
@@ -99,17 +87,28 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void SpawnAnvil(Vector2 dropLocation)
+    private void SpawnAnvil(Vector2 dropLocation, GameObject newAnvil, GameObject newShadow)
     {
-        copiedAnvil.transform.position =
-            Vector2.MoveTowards(copiedAnvil.transform.position, dropLocation, anvilDropSpeed * Time.deltaTime);
-        if (copiedAnvil.transform.position.Equals(dropLocation))
+        this.newAnvil = newAnvil;
+        this.dropLocation = dropLocation;
+        this.newShadow = newShadow;
+    }
+
+    private void MoveTowards(Vector2 dropLocation, GameObject newAnvil, Object shadow)
+    {
+        if (!newAnvil.transform.position.Equals(dropLocation))
+        {
+            newAnvil.transform.position =
+                Vector2.MoveTowards(newAnvil.transform.position, dropLocation, anvilDropSpeed * Time.deltaTime);
+        }
+
+        if (newAnvil.transform.position.Equals(dropLocation))
         {
             anvilDropped = false;
-            Destroy(anvilShadowCopy);
+            Destroy(shadow);
             var anvilTraceCopy = Instantiate(anvilTrace, new Vector3(dropLocation.x, dropLocation.y - 1f),
                 Quaternion.identity);
-            Destroy(copiedAnvil, 0.5f);
+            Destroy(newAnvil, 0.5f);
             Destroy(anvilTraceCopy, 7f);
         }
     }
@@ -117,6 +116,21 @@ public class LevelManager : MonoBehaviour
     public bool GetAnvilDropped()
     {
         return anvilDropped;
+    }
+
+    public void SetAnvilDropped(bool dropped)
+    {
+        anvilDropped = dropped;
+    }
+
+    private void Update()
+    {
+        DisplayTimeCounter();
+        CanSpawn();
+        if (anvilDropped)
+        {
+            MoveTowards(dropLocation, newAnvil, newShadow);
+        }
     }
 
     private IEnumerator RandomSpawn(int waveCounter)

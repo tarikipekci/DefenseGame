@@ -47,28 +47,31 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (ClassBehaviour.isArcher)
         {
+            weapon.sprite = arrow;
             _animator.SetTrigger(Archer);
             amblem.sprite = archerAmblem;
             bar.sprite = archerBar;
-            LevelManager.instance.SetBaseStats(7f, 3f, 5f, 9f);
+            LevelManager.instance.SetBaseStats(7f, 3f, 5f, 15f);
             LevelManager.instance.UpdateStats();
             ObjectPooling.instance.UpdateWeaponSprite(arrow);
         }
         else if (ClassBehaviour.isMage)
         {
+            weapon.sprite = magicBall;
             _animator.SetTrigger(Mage);
             amblem.sprite = mageAmblem;
             bar.sprite = mageBar;
-            LevelManager.instance.SetBaseStats(5f, 5f, 3f, 12f);
+            LevelManager.instance.SetBaseStats(5f, 5f, 3f, 20f);
             LevelManager.instance.UpdateStats();
             ObjectPooling.instance.UpdateWeaponSprite(magicBall);
         }
         else if (ClassBehaviour.isKnight)
         {
+            weapon.sprite = magicBall;
             _animator.SetTrigger(Knight);
             amblem.sprite = knightAmblem;
             bar.sprite = knightBar;
-            LevelManager.instance.SetBaseStats(15f, 7f, 3f, 7f);
+            LevelManager.instance.SetBaseStats(15f, 7f, 3f, 12f);
             LevelManager.instance.UpdateStats();
             ObjectPooling.instance.UpdateWeaponSprite(arrow);
         }

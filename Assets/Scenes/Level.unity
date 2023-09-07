@@ -6457,7 +6457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c8b4fd39c7a7340adabd1e09c65fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenSlime: {fileID: 4660700051332894934, guid: 43b35e48ed5c493498ba688f1df9f748, type: 3}
   brute: {fileID: 3432462867225728495, guid: 6f44c531e062ed2418fb2427c75f76dd, type: 3}
   fireSlime: {fileID: 2239513277253593402, guid: 44fb80e6672440c4f8fd2d96706da6ff, type: 3}
   darkTablet: {fileID: 4747098492996286525, guid: e2f686e6dbc916649b6305a1055098db, type: 3}
@@ -6548,12 +6547,9 @@ MonoBehaviour:
   enemyCounterText: {fileID: 1553622024}
   anvilShadow: {fileID: 3184379553343726587, guid: 1ec00f5c013c5f04abf99c42415773ba, type: 3}
   anvil: {fileID: 790411745682532616, guid: ae140b5b31626db4fa36bc2d4475f711, type: 3}
-  copiedAnvil: {fileID: 0}
   anvilTrace: {fileID: 2365542243901807382, guid: 84fa5261fe4168f4aa897c3e6b0c7f9f, type: 3}
-  anvilShadowCopy: {fileID: 0}
-  anvilDropSpeed: 35
+  anvilDropSpeed: 25
   anvilShadowAnimationDuration: 1
-  target: {x: 0, y: 0}
 --- !u!4 &2070534772
 Transform:
   m_ObjectHideFlags: 0
