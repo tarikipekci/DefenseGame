@@ -3918,11 +3918,11 @@ RectTransform:
   m_Father: {fileID: 1560973866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -458.38, y: -23.79}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 121, y: 0.0000076293945}
   m_SizeDelta: {x: 765.36, y: 760.03}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1418004141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6548,7 +6548,7 @@ MonoBehaviour:
   anvilShadow: {fileID: 3184379553343726587, guid: 1ec00f5c013c5f04abf99c42415773ba, type: 3}
   anvil: {fileID: 790411745682532616, guid: ae140b5b31626db4fa36bc2d4475f711, type: 3}
   anvilTrace: {fileID: 2365542243901807382, guid: 84fa5261fe4168f4aa897c3e6b0c7f9f, type: 3}
-  anvilDropSpeed: 25
+  anvilDropSpeed: 35
   anvilShadowAnimationDuration: 1
 --- !u!4 &2070534772
 Transform:
