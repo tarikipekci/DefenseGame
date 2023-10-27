@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01a7679ccebce984db4321cf8e456be3
+guid: 40797778533ab5e4c87f9cd223daf774
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -125,29 +125,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wizzy (1)_0
+      name: skillset_1_0
       rect:
         serializedVersion: 2
-        x: 123
-        y: 240
-        width: 24
-        height: 31
+        x: 4
+        y: 48
+        width: 9
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ed3a5dcf95704d4a98d82b2adcd905c
-      internalID: -1527548529
+      spriteID: a8d53da23f730df449267201fbb5a413
+      internalID: -228689622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzy (1)_1
+      name: skillset_1_1
       rect:
         serializedVersion: 2
-        x: 152
-        y: 240
-        width: 24
-        height: 31
+        x: 18
+        y: 53
+        width: 13
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a38ca720634374b8ea9b7615d0dc76
-      internalID: -984325387
+      spriteID: 75f3032170a009540a198bc1a4493c1e
+      internalID: -1362588698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzy (1)_2
+      name: skillset_1_2
       rect:
         serializedVersion: 2
-        x: 185
-        y: 240
-        width: 24
-        height: 31
+        x: 41
+        y: 48
+        width: 16
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3835d2d72da347459306e26c1b4efbc
-      internalID: 895505931
+      spriteID: 327186c7a3a724a418d3dc9b3affa9f7
+      internalID: 1910931163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzy (1)_3
+      name: skillset_1_5
       rect:
         serializedVersion: 2
-        x: 225
-        y: 257
-        width: 22
+        x: 7
+        y: 29
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -218,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce5a329d88350048bb68a782ddacc0e
-      internalID: -312939922
+      spriteID: b922746dab2b40b45b104473b18746e3
+      internalID: -1809723489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzy (1)_4
+      name: skillset_1_6
       rect:
         serializedVersion: 2
-        x: 184
-        y: 192
-        width: 24
-        height: 31
+        x: 20
+        y: 21
+        width: 21
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b10ef1af3bcdc0a4db18185fafef7de4
-      internalID: 1243721399
+      spriteID: 01a47331b8171e141b6ed64ae1029037
+      internalID: 1217249224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizzy (1)_5
+      name: skillset_1_7
       rect:
         serializedVersion: 2
-        x: 215
-        y: 192
-        width: 24
-        height: 31
+        x: 48
+        y: 30
+        width: 13
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +248,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d1f5d16fd06de8409d2b64fcc1db862
-      internalID: 1151874996
+      spriteID: 7fcf7ab6d1b172c409b1b781172eb6f3
+      internalID: -1593535673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillset_1_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 470705847ad04f64cb69305838750c38
+      internalID: -150393956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillset_1_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 5
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe23f2c1e89ab044a3962da59c4472b
+      internalID: 528090245
       vertices: []
       indices: 
       edges: []
@@ -277,12 +307,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wizzy (1)_0: -1527548529
-      Wizzy (1)_1: -984325387
-      Wizzy (1)_2: 895505931
-      Wizzy (1)_3: -312939922
-      Wizzy (1)_4: 1243721399
-      Wizzy (1)_5: 1151874996
+      skillset_1_0: -228689622
+      skillset_1_1: -1362588698
+      skillset_1_10: -2120814360
+      skillset_1_11: 1000218325
+      skillset_1_2: 1910931163
+      skillset_1_3: 335343763
+      skillset_1_4: 1346081301
+      skillset_1_5: -1809723489
+      skillset_1_6: 1217249224
+      skillset_1_7: -1593535673
+      skillset_1_8: -150393956
+      skillset_1_9: 528090245
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

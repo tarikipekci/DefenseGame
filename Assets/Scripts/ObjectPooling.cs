@@ -5,7 +5,7 @@ public class ObjectPooling : MonoBehaviour
 {
     public static ObjectPooling instance;
     private List<GameObject> pooledObjects = new List<GameObject>(), pooledGreenSlimes = new List<GameObject>();
-    private int amountToPool = 20, amountGreenSlimes = 50;
+    private int amountToPool = 20, amountGreenSlimes = 100;
     [SerializeField] private GameObject weapon, greenSlime;
     
     private void Awake()

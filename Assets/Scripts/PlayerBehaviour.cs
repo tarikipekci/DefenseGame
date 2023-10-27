@@ -26,7 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private Image amblem, bar;
 
     [SerializeField]
-    private Sprite arrow, magicBall, archerBar, mageBar, knightBar, archerAmblem, mageAmblem, knightAmblem;
+    private Sprite arrow, magicBall, spear, archerBar, mageBar, knightBar, archerAmblem, mageAmblem, knightAmblem;
 
 
     private void Awake()
@@ -67,13 +67,13 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (ClassBehaviour.isKnight)
         {
-            weapon.sprite = magicBall;
+            weapon.sprite = spear;
             _animator.SetTrigger(Knight);
             amblem.sprite = knightAmblem;
             bar.sprite = knightBar;
             LevelManager.instance.SetBaseStats(15f, 7f, 3f, 12f);
             LevelManager.instance.UpdateStats();
-            ObjectPooling.instance.UpdateWeaponSprite(arrow);
+            ObjectPooling.instance.UpdateWeaponSprite(spear);
         }
     }
 

@@ -176,6 +176,8 @@ MonoBehaviour:
   debuffLevel: 0
   coolDownForSlowDebuff: 0
   coolDownForSlowDebuffReset: 0
+  enemyRestDuration: 1.5
+  enemyRestDurationCounter: 0
   debuffDuration: 0
   debuffDurationReset: 0
 --- !u!95 &1038083770

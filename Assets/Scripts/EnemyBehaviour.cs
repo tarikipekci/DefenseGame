@@ -24,8 +24,10 @@ public class EnemyBehaviour : MonoBehaviour
     private bool itemDropped;
     private bool findNewTarget = true;
     [SerializeField] private float coolDownForSlowDebuff, coolDownForSlowDebuffReset;
+    [SerializeField] private float enemyRestDuration, enemyRestDurationCounter;
 
     [SerializeField] private float debuffDuration, debuffDurationReset;
+    private bool hit;
     private static readonly int Dash = Animator.StringToHash("dash");
 
     private void Awake()
@@ -38,10 +40,13 @@ public class EnemyBehaviour : MonoBehaviour
         moveSpeedReset = moveSpeed;
         debuffDurationReset = debuffDuration;
         coolDownForSlowDebuffReset = coolDownForSlowDebuff;
+        enemyRestDurationCounter = enemyRestDuration;
     }
 
     private void FixedUpdate()
     {
+        Rest();
+
         if (isBrute || isSlime)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
@@ -128,6 +133,24 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    private void Rest()
+    {
+        if (hit)
+        {
+            if (enemyRestDuration > 0)
+            {
+                moveSpeed = 0;
+                enemyRestDuration -= Time.deltaTime;
+            }
+            else
+            {
+                moveSpeed = moveSpeedReset;
+                enemyRestDuration = enemyRestDurationCounter;
+                hit = false;
+            }
+        }
+    }
+
     private void DropAnvilDropItem()
     {
         var randomValue = Random.Range(1, 100);
@@ -210,6 +233,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            hit = true;
             player.gameObject.GetComponent<PlayerBehaviour>().DecreaseHealthOfPlayer(damage);
         }
     }
