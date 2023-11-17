@@ -4,6 +4,8 @@ public class FireBallSkillBehaviour : MonoBehaviour
 {
     [SerializeField] private float FireballSpeed;
     [SerializeField] private float circleRadius;
+    [SerializeField] private float attackCooldown, refreshFireballCooldown;
+    private float attackCooldownReset, refreshFireballCooldownReset;
 
     private Vector2 currentLocation;
     private float currentAngle;

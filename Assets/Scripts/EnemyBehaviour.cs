@@ -30,6 +30,8 @@ public class EnemyBehaviour : MonoBehaviour
     private bool hit;
     private static readonly int Dash = Animator.StringToHash("dash");
 
+    public static EnemyBehaviour instance;
+
     private void Awake()
     {
         player = PlayerBehaviour.instance.transform;
@@ -41,6 +43,7 @@ public class EnemyBehaviour : MonoBehaviour
         debuffDurationReset = debuffDuration;
         coolDownForSlowDebuffReset = coolDownForSlowDebuff;
         enemyRestDurationCounter = enemyRestDuration;
+        instance = this;
     }
 
     private void FixedUpdate()
